@@ -3,13 +3,13 @@ package org.ghcc.toft.ware.manager;
 import org.ghcc.toft.ware.manager.create.ware.project.CreateWareProject;
 import org.ghcc.toft.ware.manager.drop.ware.project.DropWareProject;
 
-public class Manager {
+public class Main {
 
 	public static void main(String[] args) {
 		String wareID = "org.ghcc-toft.ware.core-ether-0.1.1-0.1.11-0.1";
 		String wareRootPath = "l:/test/ghcc/";
 		CreateWareProject.createWareProject(wareRootPath , wareID);
-//		DropWareProject.dropWareProject(wareRootPath , wareID);
+		DropWareProject.dropWareProject(wareRootPath , wareID);
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class Manager {
 	 * @param wareID
 	 * @return
 	 */
-	public static String getWareProjectPath(String wareID) {
+	public static String getWareProjectDirectory(String wareID) {
 		if (!checkWareID(wareID)) {
 			throw new IllegalArgumentException("error wareID:[" + wareID + "] not match " + WARE_ID_PATTERN);
 		}
