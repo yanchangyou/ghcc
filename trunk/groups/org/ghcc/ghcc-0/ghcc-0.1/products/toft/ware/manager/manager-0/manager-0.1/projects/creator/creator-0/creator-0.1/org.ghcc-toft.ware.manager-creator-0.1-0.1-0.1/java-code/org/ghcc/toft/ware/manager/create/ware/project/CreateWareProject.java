@@ -1,0 +1,59 @@
+package org.ghcc.toft.ware.manager.create.ware.project;
+
+import java.io.File;
+
+import org.ghcc.toft.ware.manager.Manager;
+
+public class CreateWareProject {
+
+	/**
+	 * 根据根路径和wareID创建ware项目
+	 * @param wareRootPath
+	 * @param wareID
+	 */
+	public static void createWareProject(String wareRootPath, String wareID) {
+		
+		String wareProjectDirectory = Manager.getWareProjectPath(wareID);
+		String wareProjectPath = wareProjectDirectory + wareID;
+		createWareProjectContent(new File(wareRootPath), wareProjectPath);
+	}
+	
+	/**
+	 * 创建项目内容:<br>
+	 * --{project-root}<br>
+	 * ---------------java-code                   存放java代码<br>
+	 * ---------------depend                      项目依赖的东西<br>
+	 * ---------------------java-lib              依赖的jar包<br>
+	 * ---------------product                     产品目录<br>
+	 * ----------------------java-classes         classes产品<br>
+	 * ----------------------java-lib             jar包产品<br>
+	 * @param wareRoot 
+	 * 
+	 * @param wareProjectDirectoryPath
+	 */
+	public static void createWareProjectContent(File wareRoot, String wareProjectPath) {
+		File wareProjectDirectory = new File(wareRoot, wareProjectPath);
+		if (wareProjectDirectory.exists() == false) {
+			boolean isOk = wareProjectDirectory.mkdirs();
+			System.out.println("创建文件[" + isOk + "]! 路径:" + wareProjectDirectory.getAbsolutePath());
+		} else {
+			System.out.println("创建文件Warning! 已经存在文件:" + wareProjectDirectory.getAbsolutePath());
+		}
+		String[] wareProjectContent = new String[]{
+//				"java-code",
+//				"depend/java-lib",
+				"product/java-lib",
+//				"product/java-classes",
+				};
+		for (int i = 0; i < wareProjectContent.length; i++) {
+			File contextFile = new File(wareProjectDirectory, wareProjectContent[i]);
+			if (contextFile.exists() == false) {
+				boolean isOk = contextFile.mkdirs();
+				System.out.println("创建文件[" + isOk + "]! 创建文件:" + contextFile.getAbsolutePath());
+			} else {
+				System.out.println("创建文件Warning! 已经存在文件:" + contextFile.getAbsolutePath());
+			}
+		}
+	}
+	
+}
