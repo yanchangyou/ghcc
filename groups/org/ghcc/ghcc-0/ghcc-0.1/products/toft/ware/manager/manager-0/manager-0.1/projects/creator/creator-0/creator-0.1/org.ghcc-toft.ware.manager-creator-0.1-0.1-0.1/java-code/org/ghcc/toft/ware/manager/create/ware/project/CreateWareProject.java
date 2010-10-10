@@ -25,7 +25,6 @@ public class CreateWareProject {
 	/**
 	 * 创建项目内容:<br>
 	 * --{project-root}<br>
-	 * ---------------java-code                   存放java代码<br>
 	 * ---------------depend                      项目依赖的东西<br>
 	 * ---------------------java-lib              依赖的jar包<br>
 	 * ---------------product                     产品目录<br>
@@ -38,13 +37,6 @@ public class CreateWareProject {
 	 */
 	public static void createWareProjectContent(File wareRoot, String wareProjectPath) {
 		File wareProjectDirectory = new File(wareRoot, wareProjectPath);
-		if (wareProjectDirectory.exists() == false) {
-			boolean isOk = wareProjectDirectory.mkdirs();
-			System.out.println("创建文件[" + isOk + "]! 路径:" + wareProjectDirectory.getAbsolutePath());
-		} else {
-			System.out.println("创建文件Warning! 已经存在文件:" + wareProjectDirectory.getAbsolutePath());
-		}
-		
 		String[] wareProjectContent = new String[]{
 				"depend/java-lib",
 				"product/java-lib",
@@ -58,7 +50,9 @@ public class CreateWareProject {
 	}
 	
 	/**
-	 * 创建ware java 文件
+	 * 创建ware java 文件<br>
+	 * --{project-root}<br>
+	 * ----------------\java-code\${wareClassName}.java    存放java代码<br>
 	 * @param wareRoot
 	 * @param wareProjectPath
 	 * @param wareClassName
@@ -80,7 +74,7 @@ public class CreateWareProject {
 		boolean isOk = false;
 		if (folder.exists() == false) {
 			isOk = folder.mkdirs();
-			System.out.println("创建文件夹[" + isOk + "]! 路径:" + folder.getAbsolutePath());
+			System.out.println("创建文件夹[" + isOk + "]!  路径:" + folder.getAbsolutePath());
 		} else {
 			System.out.println("创建文件夹Warning! 已经存在文件夹:" + folder.getAbsolutePath());
 		}
@@ -100,9 +94,9 @@ public class CreateWareProject {
 				createFolder(file.getParentFile());
 			}
 			isOk = file.createNewFile();
-			System.out.println("创建文件[" + isOk + "]! 　路径:" + file.getAbsolutePath());
+			System.out.println("创建文件[" + isOk + "]!  　路径:" + file.getAbsolutePath());
 		} else {
-			System.out.println("创建文件Warning! 已经存在文件:" + file.getAbsolutePath());
+			System.out.println("创建文件Warning!   已经存在文件:" + file.getAbsolutePath());
 		}
 		return isOk;
 	}
