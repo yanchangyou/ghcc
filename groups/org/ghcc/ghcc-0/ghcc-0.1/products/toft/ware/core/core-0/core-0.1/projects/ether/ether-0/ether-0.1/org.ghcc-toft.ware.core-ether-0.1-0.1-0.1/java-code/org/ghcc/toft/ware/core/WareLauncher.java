@@ -22,7 +22,12 @@ public class WareLauncher {
 		WareEntity ware = new WareEntity(uri);
 		
 		Map<String,Object> context = new HashMap<String,Object>();
+		ClassLoader currentClassLoader = ware.getClassLoader();
 		
+		context.put("this-class-loader", currentClassLoader);
+		context.put("ware-uri", ware.getUri());
+		
+//		Thread.currentThread().setContextClassLoader(currentClassLoader);
 		ware.getWare().execute(wareDocument.getRootElement().asXML(), context);
 	}
 }
