@@ -23,19 +23,35 @@ public class WareEntity {
 		String root = uriString.substring(0, uriString.lastIndexOf('/'));
 		id = uriString.substring(uriString.lastIndexOf('/')+1);
 		rootURL = new URL(root);
+//		
+		projectURL = new URL(root + "/" + getWareProjectPath(id));
+//		
+//		classPathURLList = new ArrayList<URL>();
+//		classPathURLList.add(new URL(projectURL.toString()+"/product/java-lib/" + id + ".jar"));
+//		classPathURLList.add(new URL(projectURL.toString()+"/product/java-classes/"));
+//		classPathURLList.add(new URL(uri.toString()+"/product/java-lib/" + id + ".jar"));
+//		classPathURLList.add(new URL(uri.toString()+"/product/java-classes/"));
 		
-		projectURL = new URL(root + "/" + getWareProjectPath());
+		classLoader = new URLClassLoader(getClassLoaderURLs(uri));
+		className = this.getWareClassName();
+//		System.out.println(this);
+		ware = (Ware) classLoader.loadClass(className).newInstance();
+//		System.out.println(this);
+	}
+	
+	public static URL[] getClassLoaderURLs(URI uri) throws MalformedURLException {
+		String uriString = uri.toString();
+		String root = uriString.substring(0, uriString.lastIndexOf('/'));
+		String id = uriString.substring(uriString.lastIndexOf('/')+1);
+		URL projectURL = new URL(root + "/" + getWareProjectPath(id));
 		
-		classPathURLList = new ArrayList<URL>();
+		List<URL> classPathURLList = new ArrayList<URL>();
 		classPathURLList.add(new URL(projectURL.toString()+"/product/java-lib/" + id + ".jar"));
 		classPathURLList.add(new URL(projectURL.toString()+"/product/java-classes/"));
 		classPathURLList.add(new URL(uri.toString()+"/product/java-lib/" + id + ".jar"));
 		classPathURLList.add(new URL(uri.toString()+"/product/java-classes/"));
+		return classPathURLList.toArray(new URL[]{});
 		
-		classLoader = new URLClassLoader(classPathURLList.toArray(new URL[]{}));
-		className = this.getWareClassName();
-//		System.out.println(this);
-		ware = (Ware) classLoader.loadClass(className).newInstance();
 	}
 	
 	public String toString() {
@@ -43,8 +59,9 @@ public class WareEntity {
 				"root            : " + rootURL + "\n" +
 				"project         : " + projectURL + "\n" + 
 				"className       : " + className + "\n" + 
-				"class-path list : " + classPathURLList.toString().replaceAll(", ", "\n                   " +
-				"ware            : " + ware);
+				"class-path list : " + classPathURLList.toString().replaceAll(", ", "\n                   ") + "\n" + 
+				"ware            : " + ware
+				;
 	}
 	
 	private URI uri;
@@ -88,6 +105,18 @@ public class WareEntity {
 
 	public Ware getWare() {
 		return ware;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public ClassLoader getClassLoader() {
+		return classLoader;
+	}
+
+	public List<URL> getClassPathURLList() {
+		return classPathURLList;
 	}
 
 	/**
@@ -141,12 +170,12 @@ public class WareEntity {
 	 * @return
 	 * @throws MalformedURLException 
 	 */
-	public String getWareProjectPath() {
+	public static String getWareProjectPath(String wareID) {
 		
 		StringBuffer wareProjectDirectory = new StringBuffer();
 		
 		String[] threeParts = new String[] {"groups", "products", "projects"};
-		String[] parts = id.split("-");
+		String[] parts = wareID.split("-");
 		for (int i = 0; i < 3; i++) { //处理 团体,产品,项目
 			wareProjectDirectory.append(threeParts[i]);
 			wareProjectDirectory.append("/");
@@ -175,7 +204,7 @@ public class WareEntity {
 				wareProjectDirectory.append("/");
 			}
 		}
-		return wareProjectDirectory.toString() + id;
+		return wareProjectDirectory.toString() + wareID;
 	}
 	
 	/**
