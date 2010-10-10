@@ -143,7 +143,7 @@ public class Ware {
 				wareProjectDirectory.append("/");
 			}
 		}
-		return wareProjectDirectory.toString();
+		return wareProjectDirectory.toString() + wareID;
 	}
 	
 	public URL getWareRealURL() throws MalformedURLException {
