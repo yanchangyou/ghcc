@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<helloworld xmlns="http://localhost:9991/svn/org.ghcc-demo.ware.helloworld-alpha-0.1-0.1-0.1">
+	<speak-words>Hello, World!</speak-words>
+</helloworld>
