@@ -1,15 +1,18 @@
 package org.ghcc.toft.ware.manager;
 
+import java.io.IOException;
+
 import org.ghcc.toft.ware.manager.create.ware.project.CreateWareProject;
 import org.ghcc.toft.ware.manager.drop.ware.project.DropWareProject;
 
 public class Manager {
 
-	public static void main(String[] args) {
-		String wareID = "org.ghcc-toft.ware.core-ether-0.1.1-0.1.11-0.1";
+	public static void main(String[] args) throws IOException {
+		String wareID = "org.ghcc-toft.ware.core-ether-1-1-1";
 		String wareRootPath = "l:/test/ghcc/";
-		CreateWareProject.createWareProject(wareRootPath , wareID);
-//		DropWareProject.dropWareProject(wareRootPath , wareID);
+		new DropWareProject().dropWareProject(wareRootPath , wareID);
+		new CreateWareProject().createWareProject(wareRootPath , wareID);
+		new DropWareProject().dropWareProject(wareRootPath , wareID);
 	}
 	
 	/**
@@ -100,5 +103,32 @@ public class Manager {
 		}
 		
 		return wareProjectDirectory.toString();
+	}
+	
+	/**
+	 * 根据wareID获取ware的class name<br>
+	 * 这个是根据规则映射过去<br>
+	 * 如: wareID :  org.ghcc-toft.ware.manager-creator-0.1-0.1-0.1<br>
+	 * wareName :　org.ghcc.toft.ware.manager.ManagerWare<br>
+	 * 算法步骤:<br>
+	 * <ul>
+	 * 	<li>准备 : 从wareID中截取 团体段: org.ghcc
+	 * 	<li>准备 : 从wareID中截取 产品段: toft.ware.manager 
+	 * 	<li>包名 : 团体段.产品段:  org.ghcc.toft.ware.manager 
+	 * 	<li>类名 : 截取最后一部分并大写, 并且加上Ware:  manager -> ManagerWare
+	 * 	<li>完成 : 与前面的包名拼接在一起 : org.ghcc.toft.ware.manager.ManagerWare
+	 * </ul>
+	 * 
+	 * @param wareID
+	 * @return
+	 */
+	public static String getWareClassName(String wareID) {
+		String className = null;
+		String groupName = wareID.substring(0, wareID.indexOf('-'));
+		String productName = wareID.substring(wareID.indexOf('-')+1, wareID.indexOf('-', groupName.length()+1));
+		String wareName = productName.substring(productName.lastIndexOf('.')+1);
+		wareName = wareName.substring(0, 1).toUpperCase() + wareName.substring(1);
+		className = groupName.toLowerCase() + "." + productName.toLowerCase() + "." + wareName + "Ware";
+		return className;
 	}
 }
