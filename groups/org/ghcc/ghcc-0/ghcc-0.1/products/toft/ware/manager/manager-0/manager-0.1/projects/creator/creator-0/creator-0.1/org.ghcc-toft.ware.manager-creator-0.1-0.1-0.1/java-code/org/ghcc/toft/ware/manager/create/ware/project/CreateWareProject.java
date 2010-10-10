@@ -15,12 +15,8 @@ public class CreateWareProject implements WareHandler {
 	 * @throws IOException 
 	 */
 	public void createWareProject(Ware ware) throws IOException {
-		
-		String wareProjectDirectory = ware.getWareProjectPath();
-		String wareProjectPath = wareProjectDirectory + ware.getWareID();
-		String wareClassName = ware.getWareClassName();
-		createWareProjectContent(ware.getRootDirectory(), wareProjectPath);
-		createWareJavaFile(ware.getRootDirectory(), wareProjectPath, wareClassName);
+		createWareProjectContent(ware);
+		createWareJavaFile(ware);
 	}
 	
 	/**
@@ -36,8 +32,8 @@ public class CreateWareProject implements WareHandler {
 	 * 
 	 * @param wareProjectDirectoryPath
 	 */
-	public static void createWareProjectContent(File wareRoot, String wareProjectPath) {
-		File wareProjectDirectory = new File(wareRoot, wareProjectPath);
+	public static void createWareProjectContent(Ware ware) {
+		File wareProjectDirectory = ware.getProjectDirectory();
 		String[] wareProjectContent = new String[]{
 				"depend/java-lib",
 				"product/java-lib",
@@ -59,10 +55,10 @@ public class CreateWareProject implements WareHandler {
 	 * @param wareClassName
 	 * @throws IOException
 	 */
-	public static void createWareJavaFile(File wareRoot, String wareProjectPath, String wareClassName) throws IOException {
-		String wareClassPath = wareClassName.replace('.', '/') + ".java";
+	public static void createWareJavaFile(Ware ware) throws IOException {
+		String wareClassPath = ware.getWareClassName().replace('.', '/') + ".java";
 		wareClassPath = "java-code/" + wareClassPath;
-		File wareFile = new File(new File(wareRoot, wareProjectPath), wareClassPath);
+		File wareFile = new File(ware.getProjectDirectory(), wareClassPath);
 		createFile(wareFile);
 	}
 	
