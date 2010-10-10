@@ -9,10 +9,9 @@ public class Manager {
 
 	public static void main(String[] args) throws IOException {
 		String wareID = "org.ghcc-toft.ware.core-ether-1-1-1";
-		String wareRootPath = "l:/test/ghcc/";
+		String wareRootPath = "L:/ghcc/svn";
 		new DropWareProject().dropWareProject(wareRootPath , wareID);
 		new CreateWareProject().createWareProject(wareRootPath , wareID);
-		new DropWareProject().dropWareProject(wareRootPath , wareID);
 	}
 	
 	/**
