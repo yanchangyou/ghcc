@@ -21,11 +21,22 @@ public class DropWareProject {
 		String wareProjectDirectory = Manager.getWareProjectPath(wareID);
 		String wareProjectPath = wareProjectDirectory + wareID;
 		File wareProjectDirectoryFile = new File(wareRootPath, wareProjectPath);
-		if (wareProjectDirectoryFile.exists() == true) {
-			deleteDictory(wareProjectDirectoryFile);
-		} else {
-			System.out.println("删除文件Warning!   　不存在文件:" + wareProjectDirectoryFile.getAbsolutePath());
+		File rootEmptyFile = getRootEmptyParentFile(new File(wareRootPath,"/groups"), wareProjectDirectoryFile);
+		deleteDictory(rootEmptyFile);
+	}
+	/**
+	 * 删除指定目录下文件, 同时也删除空的父目录, 指定根目录<br>
+	 * 为了解决创建 ware 项目时创建大量空目录, 而不能删除
+	 * @param root
+	 * @param path
+	 */
+	public static File getRootEmptyParentFile(File root, File file) {
+		File parent = file.getParentFile();
+		if(parent.list().length == 1 && //只有自身文件夹
+				parent.getAbsolutePath().indexOf(root.getAbsolutePath()) > -1) { // 不能到达根目录
+			return getRootEmptyParentFile(root, parent);
 		}
+		return file;
 	}
 	
 	public static void deleteDictory(File dir) {
