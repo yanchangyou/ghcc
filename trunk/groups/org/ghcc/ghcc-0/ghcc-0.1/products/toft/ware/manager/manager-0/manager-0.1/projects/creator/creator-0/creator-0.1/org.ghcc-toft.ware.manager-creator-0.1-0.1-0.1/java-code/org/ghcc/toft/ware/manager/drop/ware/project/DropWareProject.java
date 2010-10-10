@@ -17,7 +17,7 @@ public class DropWareProject {
 	 * 
 	 * @param wareProjectDirectoryPath
 	 */
-	public static void dropWareProject(String wareRootPath, String wareID) {
+	public void dropWareProject(String wareRootPath, String wareID) {
 		String wareProjectDirectory = Manager.getWareProjectPath(wareID);
 		String wareProjectPath = wareProjectDirectory + wareID;
 		File wareProjectDirectoryFile = new File(wareRootPath, wareProjectPath);
@@ -40,7 +40,7 @@ public class DropWareProject {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("删除文件[" + isOk + "]! 路径:" + dir.getAbsolutePath());
+		System.out.println("删除文件[" + isOk + "]! 　路径:" + dir.getAbsolutePath());
 	}
 	
 	public static void main(String[] args) {
