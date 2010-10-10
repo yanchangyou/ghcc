@@ -3,9 +3,10 @@ package org.ghcc.toft.ware.manager.create.ware.project;
 import java.io.File;
 import java.io.IOException;
 
-import org.ghcc.toft.ware.manager.Manager;
+import org.ghcc.toft.ware.manager.Ware;
+import org.ghcc.toft.ware.manager.WareHandler;
 
-public class CreateWareProject {
+public class CreateWareProject implements WareHandler {
 
 	/**
 	 * 根据根路径和wareID创建ware项目
@@ -13,13 +14,13 @@ public class CreateWareProject {
 	 * @param wareID
 	 * @throws IOException 
 	 */
-	public void createWareProject(String wareRootPath, String wareID) throws IOException {
+	public void createWareProject(Ware ware) throws IOException {
 		
-		String wareProjectDirectory = Manager.getWareProjectPath(wareID);
-		String wareProjectPath = wareProjectDirectory + wareID;
-		String wareClassName = Manager.getWareClassName(wareID);
-		createWareProjectContent(new File(wareRootPath), wareProjectPath);
-		createWareJavaFile(new File(wareRootPath), wareProjectPath, wareClassName);
+		String wareProjectDirectory = ware.getWareProjectPath();
+		String wareProjectPath = wareProjectDirectory + ware.getWareID();
+		String wareClassName = ware.getWareClassName();
+		createWareProjectContent(ware.getRootDirectory(), wareProjectPath);
+		createWareJavaFile(ware.getRootDirectory(), wareProjectPath, wareClassName);
 	}
 	
 	/**
@@ -100,5 +101,8 @@ public class CreateWareProject {
 		}
 		return isOk;
 	}
-	
+
+	public void handle(Ware ware) throws Exception {
+		createWareProject(ware);
+	}
 }

@@ -2,9 +2,10 @@ package org.ghcc.toft.ware.manager.drop.ware.project;
 
 import java.io.File;
 
-import org.ghcc.toft.ware.manager.Manager;
+import org.ghcc.toft.ware.manager.Ware;
+import org.ghcc.toft.ware.manager.WareHandler;
 
-public class DropWareProject {
+public class DropWareProject implements WareHandler {
 	/**
 	 * 删除项目文件夹:<br>
 	 * --{project-root}<br>
@@ -17,11 +18,10 @@ public class DropWareProject {
 	 * 
 	 * @param wareProjectDirectoryPath
 	 */
-	public void dropWareProject(String wareRootPath, String wareID) {
-		String wareProjectDirectory = Manager.getWareProjectPath(wareID);
-		String wareProjectPath = wareProjectDirectory + wareID;
-		File wareProjectDirectoryFile = new File(wareRootPath, wareProjectPath);
-		File rootEmptyFile = getRootEmptyParentFile(new File(wareRootPath,"/groups"), wareProjectDirectoryFile);
+	public void dropWareProject(Ware ware) {
+		File wareProjectDirectory = ware.getProjectDirectory();
+		File groupsDirectory = ware.getGroupsDirectory();
+		File rootEmptyFile = getRootEmptyParentFile(groupsDirectory, wareProjectDirectory);
 		deleteDictory(rootEmptyFile);
 	}
 	/**
@@ -32,7 +32,9 @@ public class DropWareProject {
 	 */
 	public static File getRootEmptyParentFile(File root, File file) {
 		File parent = file.getParentFile();
-		if(parent.list().length == 1 && //只有自身文件夹
+		if(parent != null && 
+				parent.list() != null && 
+				parent.list().length == 1 && //只有自身文件夹
 				parent.getAbsolutePath().indexOf(root.getAbsolutePath()) > -1) { // 不能到达根目录
 			return getRootEmptyParentFile(root, parent);
 		}
@@ -56,5 +58,8 @@ public class DropWareProject {
 	
 	public static void main(String[] args) {
 		deleteDictory(new File("L:/test/ghcc/groups/org/"));
+	}
+	public void handle(Ware ware) throws Exception {
+		dropWareProject(ware);
 	}
 }
