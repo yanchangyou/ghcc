@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URLClassLoader;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,6 +48,17 @@ public class Common {
 		return firstLine;
 	}
 	
+	public static void printClassLoaderInfo(Object obj) {
+		System.out.println("========" + obj + "==============");
+		ClassLoader classLoader = obj.getClass().getClassLoader();
+		if (classLoader instanceof URLClassLoader) {
+			System.out.println("url : " + Arrays.asList(((URLClassLoader)classLoader).getURLs()).toString().replaceAll(", ", "\n"));
+		}
+		System.out.println(" loader : " + obj.getClass().getClassLoader());
+		System.out.println(" parent : " + obj.getClass().getClassLoader().getParent());
+		System.out.println(" thread : " + Thread.currentThread().getContextClassLoader());
+	}
+	
 	public static void main(String[] args) throws DocumentException {
 		
 //		String attributeName = "version";
@@ -65,4 +78,6 @@ public class Common {
 		String version = getXMLVersion(wareDoc);
 		System.out.println("version=" + version);
 	}
+	
+	
 }

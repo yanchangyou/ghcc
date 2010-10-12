@@ -3,7 +3,6 @@ package org.ghcc.toft.ware.core;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +25,14 @@ public class WareEntity {
 //		
 		projectURL = new URL(root + "/" + getWareProjectPath(id));
 //		
-//		classPathURLList = new ArrayList<URL>();
+		classPathURLList = new ArrayList<URL>();
 //		classPathURLList.add(new URL(projectURL.toString()+"/product/java-lib/" + id + ".jar"));
 //		classPathURLList.add(new URL(projectURL.toString()+"/product/java-classes/"));
 //		classPathURLList.add(new URL(uri.toString()+"/product/java-lib/" + id + ".jar"));
 //		classPathURLList.add(new URL(uri.toString()+"/product/java-classes/"));
 		
-		classLoader = new URLClassLoader(getClassLoaderURLs(uri));
+		Common.printClassLoaderInfo(this);
+		classLoader = new MyURLClassLoader(getClassLoaderURLs(uri));
 		className = this.getWareClassName();
 //		System.out.println(this);
 		ware = (Ware) classLoader.loadClass(className).newInstance();
