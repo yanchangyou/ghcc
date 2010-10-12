@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<helloworld xmlns="http://localhost:9991/svn/org.ghcc-demo.ware.helloworld-alpha-0.1-0.1-0.1">
+<helloworld xmlns="https://ghcc.googlecode.com/svn/trunk/groups/org/ghcc/ghcc-0/ghcc-0.1/products/demo/ware/helloworld/helloworld-0/helloworld-0.1/projects/alpha/alpha-0/alpha-0.1/org.ghcc-demo.ware.helloworld-alpha-0.1-0.1-0.1">
 	<speak-words>Hello, World!</speak-words>
 </helloworld>
