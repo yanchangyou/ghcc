@@ -12,8 +12,17 @@ import org.ghcc.toft.ware.core.impl.ether.abstracts.matrix.EtherAbstractWareDocu
  */
 public class EtherDefaultWareDocumentNode extends EtherAbstractWareDocumentNode {
 
+	private String etherWareDocumentNodeXML;
+	
+	public EtherDefaultWareDocumentNode(String etherWareDocumentNodeXML) {
+		setEtherWareDocumentNodeXML(etherWareDocumentNodeXML);
+	}
+	public void setEtherWareDocumentNodeXML(String etherWareDocumentNodeXML) {
+		this.etherWareDocumentNodeXML = etherWareDocumentNodeXML;
+	}
+
 	public String getEtherWareDocumentNodeXML() {
-		return null;
+		return etherWareDocumentNodeXML;
 	}
 
 }
