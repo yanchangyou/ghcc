@@ -7,43 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-class JavaCodeInfo {
-	String[] simpleClassNames;
-	JavaCodeInfo[] combineCodeInfo;
-	String packageName = "";
-	String importPackage = "";
-	String path = "";
-	String class_or_interface = "";
-	String extends_or_implements = "";
-	String prefix = "";
-	String superPrefix = "";
-	
-	public String getClassName(int index) {
-		return this.prefix + this.simpleClassNames[index];
-	}
-
-	public String getSuperClassName (int index) {
-		return this.superPrefix + this.simpleClassNames[index];
-	}
-	public String getThisClassName (int index) {
-		return this.prefix + this.simpleClassNames[index];
-	}
-
-	public String getThisFullClassName(int index) {
-		return this.packageName + "." + this.getThisClassName(index);
-	}
-	public String getSuperFullClassName(int index) {
-		return this.importPackage + "." + this.getSuperClassName(index);
-	}
-
-	public String getClassHeader(int index) {
-		return getClassHeaerPrefix() + " " + getThisClassName(index) + " " + extends_or_implements + " " + getSuperClassName(index);
-	}
-	
-	public String getClassHeaerPrefix() {
-		return "public " + class_or_interface;
-	}
-}
 /**
  * 
  * @author yanchangyou
@@ -59,7 +22,7 @@ public class CodeMakeTool {
 		cop.simpleClassNames = new String[]{"Concept", "Node", "Entity", "Driver"};
 		cop.packageName = "org.ghcc.toft.ware.core.impl.ether.interfaces.cop";
 		cop.importPackage = "org.ghcc.toft.ware.core.design.cop";
-		cop.prefix = "Ether$";
+		cop.prefix = "Ether";
 		cop.path = "L:/ghcc/svn/groups/org/ghcc/toft/toft-0/toft-0.1/products/ware/core/impl/ether/ether-0/ether-0.1/projects/water/water-0/water-0.1/org.ghcc.toft-ware.core.impl.ether-water-0.1-0.1-0.1/java-code";
 		cop.class_or_interface = "interface";
 		cop.extends_or_implements = "extends";
@@ -68,19 +31,19 @@ public class CodeMakeTool {
 		caas.simpleClassNames = new String[]{"WareDocument", "Ware", "Function", "Input", "Output"};
 		caas.packageName = "org.ghcc.toft.ware.core.impl.ether.interfaces.caas";
 		caas.importPackage = "org.ghcc.toft.ware.core.design.caas";
-		caas.prefix = "Ether$";
+		caas.prefix = "Ether";
 		caas.path = "L:/ghcc/svn/groups/org/ghcc/toft/toft-0/toft-0.1/products/ware/core/impl/ether/ether-0/ether-0.1/projects/water/water-0/water-0.1/org.ghcc.toft-ware.core.impl.ether-water-0.1-0.1-0.1/java-code";
 		caas.class_or_interface = "interface";
 		caas.extends_or_implements = "extends";
 
-		JavaCodeInfo abstractMatrix = new JavaCodeInfo();
-		abstractMatrix.combineCodeInfo = new JavaCodeInfo[]{caas, cop};
-		abstractMatrix.packageName = "org.ghcc.toft.ware.core.impl.ether.abstracts.matrix";
-		abstractMatrix.importPackage = "";
-		abstractMatrix.prefix = "Ether$Abstract";
-		abstractMatrix.path = "L:/ghcc/svn/groups/org/ghcc/toft/toft-0/toft-0.1/products/ware/core/impl/ether/ether-0/ether-0.1/projects/water/water-0/water-0.1/org.ghcc.toft-ware.core.impl.ether-water-0.1-0.1-0.1/java-code";
-		abstractMatrix.class_or_interface = "abstract class";
-		abstractMatrix.extends_or_implements = "implements";
+		JavaCodeInfo matrix = new JavaCodeInfo();
+		matrix.combineCodeInfo = new JavaCodeInfo[]{caas, cop};
+		matrix.packageName = "org.ghcc.toft.ware.core.impl.ether.interfaces.matrix";
+		matrix.importPackage = "";
+		matrix.prefix = "Ether";
+		matrix.path = "L:/ghcc/svn/groups/org/ghcc/toft/toft-0/toft-0.1/products/ware/core/impl/ether/ether-0/ether-0.1/projects/water/water-0/water-0.1/org.ghcc.toft-ware.core.impl.ether-water-0.1-0.1-0.1/java-code";
+		matrix.class_or_interface = "interface";
+		matrix.extends_or_implements = "extends";
 		
 		List<String> nameCombine = new ArrayList<String>();
 		for (int i = 0; i < caas.simpleClassNames.length; i++) {
@@ -88,19 +51,30 @@ public class CodeMakeTool {
 				nameCombine.add(caas.simpleClassNames[i] + cop.simpleClassNames[j]);
 			}
 		}
-
+		
+		JavaCodeInfo abstractMatrix = new JavaCodeInfo();
+		abstractMatrix.simpleClassNames = nameCombine.toArray(new String[]{});
+		abstractMatrix.packageName = "org.ghcc.toft.ware.core.impl.ether.abstracts.matrix";
+		abstractMatrix.importPackage = "org.ghcc.toft.ware.core.impl.ether.interfaces.matrix";
+		abstractMatrix.prefix = "EtherAbstract";
+		abstractMatrix.superPrefix = "Ether";
+		abstractMatrix.path = "L:/ghcc/svn/groups/org/ghcc/toft/toft-0/toft-0.1/products/ware/core/impl/ether/ether-0/ether-0.1/projects/water/water-0/water-0.1/org.ghcc.toft-ware.core.impl.ether-water-0.1-0.1-0.1/java-code";
+		abstractMatrix.class_or_interface = "abstract class";
+		abstractMatrix.extends_or_implements = "implements";
+		
 		JavaCodeInfo defaultMatrix = new JavaCodeInfo();
 		defaultMatrix.simpleClassNames = nameCombine.toArray(new String[]{});
 		defaultMatrix.packageName = "org.ghcc.toft.ware.core.impl.ether.defaults.matrix";
 		defaultMatrix.importPackage = "org.ghcc.toft.ware.core.impl.ether.abstracts.matrix";
-		defaultMatrix.prefix = "Ether$Default";
-		defaultMatrix.superPrefix = "Ether$Abstract";
+		defaultMatrix.prefix = "EtherDefault";
+		defaultMatrix.superPrefix = "EtherAbstract";
 		defaultMatrix.path = "L:/ghcc/svn/groups/org/ghcc/toft/toft-0/toft-0.1/products/ware/core/impl/ether/ether-0/ether-0.1/projects/water/water-0/water-0.1/org.ghcc.toft-ware.core.impl.ether-water-0.1-0.1-0.1/java-code";
 		defaultMatrix.class_or_interface = "class";
 		defaultMatrix.extends_or_implements = "extends";
 		
 		createJavaCode(cop);
 		createJavaCode(caas);
+		createJavaCode(matrix);
 		createJavaCode(abstractMatrix);
 		createJavaCode(defaultMatrix);
 	}

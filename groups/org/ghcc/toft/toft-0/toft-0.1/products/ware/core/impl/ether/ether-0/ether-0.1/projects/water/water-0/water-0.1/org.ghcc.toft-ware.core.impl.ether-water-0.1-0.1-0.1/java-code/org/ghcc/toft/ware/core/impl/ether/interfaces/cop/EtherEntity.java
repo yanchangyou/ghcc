@@ -3,13 +3,13 @@ package org.ghcc.toft.ware.core.impl.ether.interfaces.cop;
 import org.ghcc.toft.ware.core.design.cop.Entity;
 
 /**
- * Ether$Entity
+ * EtherEntity
  * 
  * @author yanchangyou
- * @date 2010-10-16 01:31:53
+ * @date 2010-10-17 00:08:58
  * @version 0.1
  *
  */
-public interface Ether$Entity extends Entity {
+public interface EtherEntity extends Entity, EtherConcept, EtherDriver {
 
 }
