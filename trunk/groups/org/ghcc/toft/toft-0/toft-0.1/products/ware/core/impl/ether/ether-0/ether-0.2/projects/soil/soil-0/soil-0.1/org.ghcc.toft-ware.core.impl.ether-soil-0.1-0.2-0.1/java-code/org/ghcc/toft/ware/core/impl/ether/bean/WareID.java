@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.dom4j.Namespace;
 
@@ -26,11 +28,11 @@ public class WareID {
 		String uri = namespace.getURI();
 		String warePath = uri.substring(0, uri.lastIndexOf('/'));
 		warePathURL = new URL(warePath);
+		wareID = uri.substring(warePath.length() + 1);
 		if (!checkWareID(wareID)) {
 			throw new IllegalArgumentException("error wareID:[" + wareID
 					+ "] not match " + WARE_ID_PATTERN);
 		}
-		wareID = uri.substring(warePath.length() + 1);
 	}
 
 	public WareID(URL rootURL, String wareID) {
@@ -201,6 +203,15 @@ public class WareID {
 				+ "." + wareName + "Ware";
 		return className;
 	}
+	
+	/**
+	 * 获取包名
+	 * @return
+	 */
+	public String getWarePackageName() {
+		String className = getWareClassName();
+		return className.substring(0, className.lastIndexOf('.'));
+	}
 
 	public File getProjectDirectory() {
 		return new File(this.getRootDirectory(), this.getWareProjectPath());
@@ -213,6 +224,14 @@ public class WareID {
 	public File getGroupsDirectory() {
 		return new File(this.getRootDirectory() + "/groups");
 	}
+	
+	public URL[] getWareClassPathURLs() throws MalformedURLException {
+		List<URL> urlList = new ArrayList<URL>();
+		String projectFullPath = getWarePathURL().toExternalForm() + "/" + getWareProjectPath();
+		urlList.add(new URL(projectFullPath + "/product/java-classes/"));
+		urlList.add(new URL(projectFullPath + "/product/java-lib/" + this.wareID + ".jar"));
+		return urlList.toArray(new URL[]{});
+	}
 
 	public static void main(String[] args) throws Exception {
 		URL url = new URL("file://l:/ghcc/svn/groups");
@@ -222,7 +241,7 @@ public class WareID {
 		System.out.println(url.getProtocol());
 		System.out.println(new File(url.toString()
 				.substring("file://".length())).getCanonicalPath());
-		System.out.println(new URL("file://l:/ghcc/svn/groups"));
+		System.out.println(new URL("file://l:/ghcc/svn/groups").getPath());
 		System.out.println(new URL("file://l:/ghcc/svn/groups"));
 		System.out.println(new URL("file://l:/ghcc/svn/groups"));
 	}

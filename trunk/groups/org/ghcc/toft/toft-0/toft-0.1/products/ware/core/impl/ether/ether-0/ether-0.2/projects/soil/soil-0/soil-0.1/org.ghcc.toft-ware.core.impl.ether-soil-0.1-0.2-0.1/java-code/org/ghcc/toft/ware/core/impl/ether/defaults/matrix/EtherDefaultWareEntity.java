@@ -9,8 +9,9 @@ import org.dom4j.Namespace;
 import org.ghcc.toft.ware.core.impl.ether.abstracts.matrix.EtherAbstractWareEntity;
 import org.ghcc.toft.ware.core.impl.ether.bean.WareID;
 import org.ghcc.toft.ware.core.impl.ether.boot.ActiveURLClassLoader;
+import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherFunctionEntity;
+import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherFunctionNode;
 import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareEntity;
-import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareNode;
 
 /**
  * EtherDefaultWareEntity
@@ -23,11 +24,15 @@ import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareNode;
 public class EtherDefaultWareEntity extends EtherAbstractWareEntity {
 
 	protected static EtherWareEntity singleEtherWareEntity;
+	static {
+		singleEtherWareEntity = new EtherDefaultWareEntity();
+	}
+	
+	private EtherDefaultWareEntity() {
+		
+	}
 
 	public static EtherWareEntity getSingleEthertWareEntity() {
-		if (singleEtherWareEntity == null) {
-			singleEtherWareEntity = new EtherDefaultWareEntity();
-		}
 		return singleEtherWareEntity;
 	}
 
@@ -35,9 +40,9 @@ public class EtherDefaultWareEntity extends EtherAbstractWareEntity {
 		throw e;
 	}
 
-	public void drive(EtherWareNode node) throws Exception {
-		EtherWareEntity wareEntity = load(node.getDom4jNamespace());
-		wareEntity.drive(node);
+	public void drive(EtherFunctionNode functionNode) throws Exception {
+		EtherWareEntity wareEntity = loadWareEntity(functionNode.getDom4jElement().getNamespace());
+		wareEntity.drive(functionNode);
 	}
 
 	private Map<Namespace, EtherWareEntity> wareEntityMap;
@@ -45,19 +50,37 @@ public class EtherDefaultWareEntity extends EtherAbstractWareEntity {
 		wareEntityMap = new HashMap<Namespace, EtherWareEntity>();
 	}
 
-	public EtherWareEntity load(Namespace dom4jNamespace) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+	/**
+	 * 加载 wareEntity
+	 * @param dom4jNamespace
+	 * @return
+	 * @throws MalformedURLException
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public EtherWareEntity loadWareEntity(Namespace dom4jNamespace) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
 		EtherWareEntity wareEntity = wareEntityMap.get(dom4jNamespace);
 
 		if (wareEntity == null) {
-
 			WareID wareID = new WareID(dom4jNamespace);
-			ActiveURLClassLoader activeURLClassLoader = new ActiveURLClassLoader(new URL[]{wareID.getWarePathURL()});
+			ActiveURLClassLoader activeURLClassLoader = new ActiveURLClassLoader(wareID);
 			wareEntity = (EtherWareEntity) activeURLClassLoader.loadClass(wareID.getWareClassName()).newInstance();
-//			 wareEntity = new EtherDefaultWareEntity(dom4jNamespace);
-			
+			wareEntityMap.put(dom4jNamespace, wareEntity); //buffer it
 		}
 
 		return wareEntity;
+	}
+
+	/**
+	 * 加载功能, 此功能是核心的, 不予实现
+	 */
+	public EtherFunctionEntity loadFunctionEntity(EtherFunctionNode functionNode) {
+		throw new RuntimeException("核心的类, 不能调用");
+	}
+
+	public URL[] configClassPathURLs() throws MalformedURLException {
+		return null;
 	}
 }

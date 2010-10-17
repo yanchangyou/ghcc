@@ -13,11 +13,4 @@ import org.ghcc.toft.ware.core.impl.ether.interfaces.caas.EtherWare;
 import org.ghcc.toft.ware.core.impl.ether.interfaces.cop.EtherDriver;
 
 public interface EtherWareDriver extends WareDriver, EtherWare, EtherDriver {
-
-	/**
-	 * 驱动执行
-	 * @param node
-	 * @throws Exception
-	 */
-	public void drive(EtherWareNode node) throws Exception;
 }

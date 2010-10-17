@@ -28,6 +28,7 @@ public class EtherBoot {
 		EtherWareDocumentNode etherWareDocumentNode = new EtherDefaultWareDocumentNode(wareDocument);
 		
 		EtherWareDocumentEntity etherWareDocumentEntity = new EtherDefaultWareDocumentEntity();
+		
 		etherWareDocumentEntity.drive(etherWareDocumentNode);
 	}
 }
