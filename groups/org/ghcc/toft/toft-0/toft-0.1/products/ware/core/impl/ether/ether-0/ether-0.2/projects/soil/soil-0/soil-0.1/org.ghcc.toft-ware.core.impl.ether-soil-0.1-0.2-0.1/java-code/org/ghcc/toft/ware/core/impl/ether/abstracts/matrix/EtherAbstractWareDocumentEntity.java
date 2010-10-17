@@ -24,4 +24,15 @@ public abstract class EtherAbstractWareDocumentEntity implements EtherWareDocume
 			throw new Exception("类型不匹配, 必须传递[EtherWareDocumentNode]类型");
 		}
 	}
+	
+	/**
+	 * 使用异常处理
+	 */
+	public void driveWithDealException(EtherNode node) throws Exception {
+		try {
+			this.drive(node);
+		} catch (Exception e) {
+			this.dealException(e);
+		}
+	}
 }

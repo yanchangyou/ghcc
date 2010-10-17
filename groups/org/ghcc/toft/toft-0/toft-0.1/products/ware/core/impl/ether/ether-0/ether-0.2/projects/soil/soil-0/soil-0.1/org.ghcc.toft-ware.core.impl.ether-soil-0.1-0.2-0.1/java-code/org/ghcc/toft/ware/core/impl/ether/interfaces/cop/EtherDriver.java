@@ -24,4 +24,12 @@ public interface EtherDriver extends Driver {
 	 * @throws Exception
 	 */
 	public void dealException(Exception e) throws Exception;
+	
+	/**
+	 * 执行并处理异常
+	 * @param node
+	 * @throws Exception
+	 */
+	public void driveWithDealException(EtherNode node) throws Exception;
+	
 }
