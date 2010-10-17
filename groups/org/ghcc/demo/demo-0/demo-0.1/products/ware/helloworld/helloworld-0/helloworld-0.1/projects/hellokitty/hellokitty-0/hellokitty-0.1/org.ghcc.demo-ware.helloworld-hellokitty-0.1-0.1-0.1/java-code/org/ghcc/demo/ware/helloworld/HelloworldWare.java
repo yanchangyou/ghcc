@@ -15,7 +15,7 @@ public class HelloworldWare extends EtherAbstractWareEntity {
 //		System.out.println(functionNode.getDom4jElement().asXML());
 		
 		EtherFunctionEntity functionEntity= loadFunctionEntity(functionNode);
-		functionEntity.drive(functionNode);
+		functionEntity.driveWithChildWithDealException(functionNode);
 	}
 
 	public URL[] configClassPathURLs() throws MalformedURLException {
