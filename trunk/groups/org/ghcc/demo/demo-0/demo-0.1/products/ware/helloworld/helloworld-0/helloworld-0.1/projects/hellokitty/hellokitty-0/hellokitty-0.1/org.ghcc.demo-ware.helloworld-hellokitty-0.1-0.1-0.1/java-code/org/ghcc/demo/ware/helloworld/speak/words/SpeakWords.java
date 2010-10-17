@@ -9,7 +9,7 @@ public class SpeakWords extends EtherAbstractFunctionEntity {
 	public void drive(EtherFunctionNode node) throws Exception {
 //		System.out.println("to SpeakWords ");
 		System.out.println(node.getDom4jElement().getText());
-		System.out.println(StringUtils.capitalize("abc"));
+		System.out.println("StringUtils.capitalize(\"abc\") = " + StringUtils.capitalize("abc"));
 	}
 
 }
