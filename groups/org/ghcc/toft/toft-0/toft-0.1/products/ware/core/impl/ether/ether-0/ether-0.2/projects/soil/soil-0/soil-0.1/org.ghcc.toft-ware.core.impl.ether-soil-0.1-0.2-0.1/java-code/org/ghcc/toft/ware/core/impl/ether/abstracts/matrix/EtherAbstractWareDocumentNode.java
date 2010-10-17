@@ -11,5 +11,5 @@ import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareDocumentNod
  *
  */
 public abstract class EtherAbstractWareDocumentNode implements EtherWareDocumentNode {
-	
+
 }
