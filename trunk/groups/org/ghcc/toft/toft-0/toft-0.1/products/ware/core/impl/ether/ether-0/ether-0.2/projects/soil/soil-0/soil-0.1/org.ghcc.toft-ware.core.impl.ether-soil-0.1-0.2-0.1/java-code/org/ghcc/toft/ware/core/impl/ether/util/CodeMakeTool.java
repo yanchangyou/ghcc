@@ -34,9 +34,9 @@ public class CodeMakeTool {
 
 		JavaCodeInfo caas = new JavaCodeInfo();
 		caas.simpleClassNames = new String[]{
-				"WareDocument", 
+//				"WareDocument", 
 //				"Ware", 
-//				"Function", 
+				"Function", 
 //				"Input", 
 //				"Output"
 				};
@@ -85,10 +85,10 @@ public class CodeMakeTool {
 		defaultMatrix.extends_or_implements = "extends";
 		
 //		createJavaCode(cop);
-//		createJavaCode(caas);
+		createJavaCode(caas);
 		createJavaCode(matrix);
-//		createJavaCode(abstractMatrix);
-//		createJavaCode(defaultMatrix);
+		createJavaCode(abstractMatrix);
+		createJavaCode(defaultMatrix);
 	}
 	
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

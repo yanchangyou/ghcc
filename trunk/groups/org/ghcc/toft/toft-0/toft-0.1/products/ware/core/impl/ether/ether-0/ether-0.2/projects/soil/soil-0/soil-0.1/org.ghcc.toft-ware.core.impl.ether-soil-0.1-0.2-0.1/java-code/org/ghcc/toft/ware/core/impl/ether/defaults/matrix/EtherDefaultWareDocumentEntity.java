@@ -5,6 +5,7 @@ import org.dom4j.Element;
 import org.dom4j.Node;
 import org.ghcc.toft.ware.core.impl.ether.abstracts.matrix.EtherAbstractWareDocumentEntity;
 import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareDocumentNode;
+import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareEntity;
 
 /**
  * EtherDefaultWareDocumentEntity
@@ -25,6 +26,15 @@ public class EtherDefaultWareDocumentEntity extends EtherAbstractWareDocumentEnt
 	 */
 	public void drive(EtherWareDocumentNode etherWareDocumentNode) throws Exception {
 		System.out.println(etherWareDocumentNode.getEtherNode().asXML());
+		
+		Element root = etherWareDocumentNode.getDom4jDocument().getRootElement();
+		
+//		EtherWareEntity wareEntity = EtherAbstractWareEntity.load(root.getNamespace());
+		
+		EtherDefaultWareNode wareNode = new EtherDefaultWareNode(root.getNamespace());
+		EtherWareEntity wareEntity = EtherDefaultWareEntity.getSingleEthertWareEntity();
+		wareEntity.drive(wareNode);
+		
 		
 		String xml = etherWareDocumentNode.getEtherNode().asXML();
 		Element element = DocumentHelper.parseText(xml).getRootElement(); 

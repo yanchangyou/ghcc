@@ -19,16 +19,12 @@ public class EtherDefaultWareDocumentNode extends EtherAbstractWareDocumentNode 
 	}
 	private Document dom4jDocument;
 
-	public void setDom4jDocument(Document dom4jDocument) {
+	protected void setDom4jDocument(Document dom4jDocument) {
 		this.dom4jDocument = dom4jDocument;
 	}
 
 	public Document getDom4jDocument() {
 		return dom4jDocument;
-	}
-
-	public String getEtherNodeXML() {
-		return getDom4jDocument().asXML();
 	}
 
 	public Node getEtherNode() {
