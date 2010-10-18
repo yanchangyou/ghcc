@@ -14,8 +14,14 @@ import org.ghcc.toft.ware.core.impl.ether.interfaces.matrix.EtherWareDocumentNod
 public class EtherBoot {
 
 	public static void main(String[] args) throws Exception {
-		String warePath = "L:/ghcc/svn/groups/org/ghcc/demo/demo-0/demo-0.1/products/app/helloworld/helloworld-0/helloworld-0.1/projects/hellokitty/hellokitty-0/hellokitty-0.1/org.ghcc.demo-app.helloworld-hellokitty-0.1-0.1-0.1/ware-code/org/ghcc/demo/app/helloworld/Helloworld.ware.xml";
+		String warePath = null;
 
+		if (args != null && args.length > 0) {
+			warePath = args[0];
+		} else {
+			throw new Exception("please input the ware.xml file!");
+		}
+//		System.out.println(warePath);
 		Document wareDocument = null;
 		SAXReader saxReader = new SAXReader();
 		File wareFile = new File(warePath);
