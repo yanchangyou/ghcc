@@ -1,7 +1,7 @@
 package org.ghcc.toft.ware.core.design.interfaces.caas;
 
 /**
- * Function
+ * 功能:可以理解为软件的一项功能
  * 
  * @author yanchangyou
  * @date 2010-10-17 18:06:00
