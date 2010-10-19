@@ -14,6 +14,6 @@ public interface Builder extends EOP {
 	 * @param resorce
 	 * @throws Exception
 	 */
-	public void build(Resource resorce) throws BuildException;
+	public void build(Resource resource) throws BuildException;
 	
 }
