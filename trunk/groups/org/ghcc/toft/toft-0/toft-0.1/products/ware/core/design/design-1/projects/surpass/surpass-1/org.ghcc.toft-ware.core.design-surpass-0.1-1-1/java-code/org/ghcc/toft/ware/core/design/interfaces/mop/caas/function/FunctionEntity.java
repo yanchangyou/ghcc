@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.function;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.lifecycle.FunctionBuilder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.lifecycle.FunctionDriver;
 
 
 /**
@@ -19,5 +21,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface FunctionEntity extends Function, Entity, FunctionCOP {
+public interface FunctionEntity extends Function, Entity, FunctionCOP, FunctionConcept, FunctionBuilder, FunctionDriver {
 }

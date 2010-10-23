@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Input;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.define.InputContext;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.exception.InputDriveException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
 
 
 public interface InputDriver extends Input, Driver, InputCOPLifeCycle {
+
+	public void drive(InputContext context) throws InputDriveException;
+
 }

@@ -4,6 +4,9 @@
 
 package org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle;
 
+import org.ghcc.toft.ware.core.design.interfaces.cop.define.Resource;
+import org.ghcc.toft.ware.core.design.interfaces.cop.exception.BuildException;
+
 
 
 /**
@@ -18,4 +21,7 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle;
 
 
 public interface Builder extends COPLifeCycle {
+	
+	public void build(Resource resource) throws BuildException;
+	
 }

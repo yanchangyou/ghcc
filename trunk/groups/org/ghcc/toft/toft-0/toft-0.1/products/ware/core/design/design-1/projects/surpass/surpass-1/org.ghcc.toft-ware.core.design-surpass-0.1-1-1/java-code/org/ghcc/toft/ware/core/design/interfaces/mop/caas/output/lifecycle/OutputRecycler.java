@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.OutputEntity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.exception.OutputRecycleException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
 
 
 public interface OutputRecycler extends Output, Recycler, OutputCOPLifeCycle {
+
+	public void recycly(OutputEntity entity) throws OutputRecycleException;
+
 }

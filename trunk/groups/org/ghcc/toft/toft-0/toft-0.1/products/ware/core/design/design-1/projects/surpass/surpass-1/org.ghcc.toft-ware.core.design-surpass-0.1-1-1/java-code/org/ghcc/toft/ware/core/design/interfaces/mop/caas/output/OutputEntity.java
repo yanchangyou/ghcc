@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
 import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.lifecycle.OutputBuilder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.lifecycle.OutputDriver;
 
 
 /**
@@ -19,5 +21,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface OutputEntity extends Output, Entity, OutputCOP {
+public interface OutputEntity extends Output, Entity, OutputCOP, OutputConcept, OutputBuilder, OutputDriver {
 }

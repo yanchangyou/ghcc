@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycle.WareDocumentBuilder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycle.WareDocumentDriver;
 
 
 /**
@@ -19,5 +21,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface WareDocumentEntity extends WareDocument, Entity, WareDocumentCOP {
+public interface WareDocumentEntity extends WareDocument, Entity, WareDocumentCOP, WareDocumentConcept, WareDocumentBuilder, WareDocumentDriver {
 }

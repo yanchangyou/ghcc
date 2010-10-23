@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycl
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define.WareDocumentContext;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.exception.WareDocumentDriveException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
 
 
 public interface WareDocumentDriver extends WareDocument, Driver, WareDocumentCOPLifeCycle {
+
+	public void drive(WareDocumentContext context) throws WareDocumentDriveException;
+
 }

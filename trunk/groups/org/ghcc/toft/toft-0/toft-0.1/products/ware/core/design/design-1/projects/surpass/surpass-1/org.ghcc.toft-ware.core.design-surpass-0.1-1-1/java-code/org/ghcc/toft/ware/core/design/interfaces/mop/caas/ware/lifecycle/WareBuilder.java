@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Ware;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.define.WareResource;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.exception.WareBuildException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
 
 
 public interface WareBuilder extends Ware, Builder, WareCOPLifeCycle {
+
+	public void build(WareResource resource) throws WareBuildException;
+
 }

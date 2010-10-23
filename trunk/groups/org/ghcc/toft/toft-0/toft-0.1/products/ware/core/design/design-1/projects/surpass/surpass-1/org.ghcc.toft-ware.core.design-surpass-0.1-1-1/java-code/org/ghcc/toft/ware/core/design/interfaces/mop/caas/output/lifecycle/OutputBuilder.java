@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.define.OutputResource;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.exception.OutputBuildException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
 
 
 public interface OutputBuilder extends Output, Builder, OutputCOPLifeCycle {
+
+	public void build(OutputResource resource) throws OutputBuildException;
+
 }

@@ -4,6 +4,9 @@
 
 package org.ghcc.toft.ware.core.design.interfaces.cop;
 
+import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
+import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
+
 
 
 /**
@@ -17,5 +20,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop;
  */
 
 
-public interface Entity extends COP {
+public interface Entity extends COP, Concept, Builder, Driver {
 }

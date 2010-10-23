@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Input;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.define.InputResource;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.exception.InputBuildException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
 
 
 public interface InputBuilder extends Input, Builder, InputCOPLifeCycle {
+
+	public void build(InputResource resource) throws InputBuildException;
+
 }

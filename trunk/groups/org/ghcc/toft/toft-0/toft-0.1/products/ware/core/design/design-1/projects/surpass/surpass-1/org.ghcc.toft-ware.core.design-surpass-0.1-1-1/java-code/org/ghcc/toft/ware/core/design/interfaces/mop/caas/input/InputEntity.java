@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.input;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Input;
 import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.lifecycle.InputBuilder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.lifecycle.InputDriver;
 
 
 /**
@@ -19,5 +21,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface InputEntity extends Input, Entity, InputCOP {
+public interface InputEntity extends Input, Entity, InputCOP, InputConcept, InputBuilder, InputDriver {
 }

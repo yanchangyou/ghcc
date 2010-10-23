@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycl
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define.WareDocumentResource;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.exception.WareDocumentBuildException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
 
 
 public interface WareDocumentBuilder extends WareDocument, Builder, WareDocumentCOPLifeCycle {
+
+	public void build(WareDocumentResource resource) throws WareDocumentBuildException;
+
 }
