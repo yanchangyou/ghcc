@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.BuildException;
  */
 
 
-public interface InputBuildException extends Input, BuildException {
+public class InputBuildException extends BuildException implements Input, InputCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2555378352372075074L;
 }

@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.LoadException;
  */
 
 
-public interface WareDocumentLoadException extends WareDocument, LoadException {
+public class WareDocumentLoadException extends LoadException implements WareDocument, WareDocumentCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1183534663880395775L;
 }

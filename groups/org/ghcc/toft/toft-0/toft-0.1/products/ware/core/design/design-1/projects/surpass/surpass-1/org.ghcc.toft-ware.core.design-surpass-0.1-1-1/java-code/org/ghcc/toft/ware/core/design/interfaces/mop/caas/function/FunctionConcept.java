@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Concept;
  */
 
 
-public interface FunctionConcept extends Function, Concept {
+public interface FunctionConcept extends Function, Concept, FunctionCOP {
 }

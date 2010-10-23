@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.DriveException;
  */
 
 
-public interface OutputDriveException extends Output, DriveException {
+public class OutputDriveException extends DriveException implements Output, OutputCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4688292442176788439L;
 }

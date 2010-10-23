@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
  */
 
 
-public interface InputDriver extends Input, Driver {
+public interface InputDriver extends Input, Driver, InputCOPLifeCycle {
 }

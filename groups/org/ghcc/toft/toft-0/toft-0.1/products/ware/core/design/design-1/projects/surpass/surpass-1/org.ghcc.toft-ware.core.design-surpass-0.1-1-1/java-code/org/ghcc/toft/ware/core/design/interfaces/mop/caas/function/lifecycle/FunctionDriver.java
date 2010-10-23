@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
  */
 
 
-public interface FunctionDriver extends Function, Driver {
+public interface FunctionDriver extends Function, Driver, FunctionCOPLifeCycle {
 }

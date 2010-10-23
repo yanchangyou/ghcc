@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Concept;
  */
 
 
-public interface WareDocumentConcept extends WareDocument, Concept {
+public interface WareDocumentConcept extends WareDocument, Concept, WareDocumentCOP {
 }

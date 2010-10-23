@@ -4,6 +4,8 @@
 
 package org.ghcc.toft.ware.core.design.interfaces.cop.define;
 
+import org.ghcc.toft.ware.core.design.interfaces.cop.COP;
+
 
 
 /**
@@ -17,5 +19,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.define;
  */
 
 
-public interface COPDefine {
+public interface COPDefine extends COP {
 }

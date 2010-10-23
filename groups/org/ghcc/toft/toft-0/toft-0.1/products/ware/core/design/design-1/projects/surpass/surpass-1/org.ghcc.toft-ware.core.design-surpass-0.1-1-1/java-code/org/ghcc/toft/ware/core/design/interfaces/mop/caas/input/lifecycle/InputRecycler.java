@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
  */
 
 
-public interface InputRecycler extends Input, Recycler {
+public interface InputRecycler extends Input, Recycler, InputCOPLifeCycle {
 }

@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface InputEntity extends Input, Entity {
+public interface InputEntity extends Input, Entity, InputCOP {
 }

@@ -17,5 +17,8 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.define;
  */
 
 
-public interface ID {
+public interface ID extends COPDefine {
+	
+	public String getID();
+	
 }

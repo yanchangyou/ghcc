@@ -4,6 +4,8 @@
 
 package org.ghcc.toft.ware.core.design.interfaces.cop.exception;
 
+import org.ghcc.toft.ware.core.design.interfaces.cop.COP;
+
 
 
 /**
@@ -17,5 +19,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.exception;
  */
 
 
-public interface COPException {
+public interface COPException extends COP {
 }

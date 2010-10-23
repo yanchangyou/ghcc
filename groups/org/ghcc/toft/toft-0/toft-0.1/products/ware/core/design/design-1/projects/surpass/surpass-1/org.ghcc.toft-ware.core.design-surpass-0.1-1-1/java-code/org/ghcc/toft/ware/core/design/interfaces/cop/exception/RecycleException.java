@@ -17,5 +17,10 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.exception;
  */
 
 
-public interface RecycleException {
+public class RecycleException extends Exception implements COPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4473781849900244454L;
 }

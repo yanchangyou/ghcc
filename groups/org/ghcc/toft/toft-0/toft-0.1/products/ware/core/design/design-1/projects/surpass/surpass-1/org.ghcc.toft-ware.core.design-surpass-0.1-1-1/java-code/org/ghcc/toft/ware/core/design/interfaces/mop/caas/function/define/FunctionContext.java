@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.Context;
  */
 
 
-public interface FunctionContext extends Function, Context {
+public interface FunctionContext extends Function, Context, FunctionCOPDefine {
 }

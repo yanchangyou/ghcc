@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.PathInfo;
  */
 
 
-public interface InputPathInfo extends Input, PathInfo {
+public interface InputPathInfo extends Input, PathInfo, InputCOPDefine {
 }

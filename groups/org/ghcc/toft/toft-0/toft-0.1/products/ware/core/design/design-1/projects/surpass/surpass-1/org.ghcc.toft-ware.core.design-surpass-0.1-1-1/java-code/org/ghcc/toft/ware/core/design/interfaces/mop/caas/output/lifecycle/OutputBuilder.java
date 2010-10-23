@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
  */
 
 
-public interface OutputBuilder extends Output, Builder {
+public interface OutputBuilder extends Output, Builder, OutputCOPLifeCycle {
 }

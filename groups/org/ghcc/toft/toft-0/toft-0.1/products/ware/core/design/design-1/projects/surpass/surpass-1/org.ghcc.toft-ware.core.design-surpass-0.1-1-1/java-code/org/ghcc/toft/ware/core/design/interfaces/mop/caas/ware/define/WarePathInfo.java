@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.PathInfo;
  */
 
 
-public interface WarePathInfo extends Ware, PathInfo {
+public interface WarePathInfo extends Ware, PathInfo, WareCOPDefine {
 }

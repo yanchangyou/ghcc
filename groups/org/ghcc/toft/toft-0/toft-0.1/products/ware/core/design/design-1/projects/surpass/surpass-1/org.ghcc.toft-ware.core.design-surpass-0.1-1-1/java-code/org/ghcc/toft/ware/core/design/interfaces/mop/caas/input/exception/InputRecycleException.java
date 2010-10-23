@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.RecycleException;
  */
 
 
-public interface InputRecycleException extends Input, RecycleException {
+public class InputRecycleException extends RecycleException implements Input, InputCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5977475271854873916L;
 }

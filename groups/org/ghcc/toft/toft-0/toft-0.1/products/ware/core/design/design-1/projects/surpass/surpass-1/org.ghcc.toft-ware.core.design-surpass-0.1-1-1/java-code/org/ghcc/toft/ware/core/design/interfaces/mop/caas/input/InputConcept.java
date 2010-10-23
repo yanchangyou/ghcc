@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Concept;
  */
 
 
-public interface InputConcept extends Input, Concept {
+public interface InputConcept extends Input, Concept, InputCOP {
 }

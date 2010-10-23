@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.DriveException;
  */
 
 
-public interface FunctionDriveException extends Function, DriveException {
+public class FunctionDriveException extends DriveException implements Function, FunctionCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7116422318339972248L;
 }

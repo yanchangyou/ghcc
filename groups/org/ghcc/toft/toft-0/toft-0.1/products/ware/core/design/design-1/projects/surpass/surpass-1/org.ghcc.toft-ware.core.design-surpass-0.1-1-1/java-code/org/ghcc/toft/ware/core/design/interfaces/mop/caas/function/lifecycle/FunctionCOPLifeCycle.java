@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.COPLifeCycle;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.FunctionCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.COPLifeCycle;
  */
 
 
-public interface FunctionCOPLifeCycle extends Function, COPLifeCycle {
+public interface FunctionCOPLifeCycle extends Function, COPLifeCycle, FunctionCOP {
 }

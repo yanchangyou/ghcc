@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.define;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.core.design.interfaces.cop.define.COPDefine;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.FunctionCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.COPDefine;
  */
 
 
-public interface FunctionCOPDefine extends Function, COPDefine {
+public interface FunctionCOPDefine extends Function, COPDefine, FunctionCOP {
 }

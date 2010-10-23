@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.Context;
  */
 
 
-public interface OutputContext extends Output, Context {
+public interface OutputContext extends Output, Context, OutputCOPDefine {
 }

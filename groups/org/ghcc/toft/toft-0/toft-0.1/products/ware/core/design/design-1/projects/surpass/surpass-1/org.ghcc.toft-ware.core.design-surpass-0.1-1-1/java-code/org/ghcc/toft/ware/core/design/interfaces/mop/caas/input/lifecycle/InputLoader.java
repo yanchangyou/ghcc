@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
  */
 
 
-public interface InputLoader extends Input, Loader {
+public interface InputLoader extends Input, Loader, InputCOPLifeCycle {
 }

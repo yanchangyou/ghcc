@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.define;
  */
 
 
-public interface PathInfo {
+public interface PathInfo extends COPDefine {
 }

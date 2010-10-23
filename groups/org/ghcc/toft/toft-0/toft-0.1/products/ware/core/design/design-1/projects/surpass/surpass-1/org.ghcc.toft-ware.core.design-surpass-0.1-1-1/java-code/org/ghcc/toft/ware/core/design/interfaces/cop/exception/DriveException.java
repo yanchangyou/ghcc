@@ -17,5 +17,10 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.exception;
  */
 
 
-public interface DriveException {
+public class DriveException extends Exception implements COPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8700814991757758068L;
 }

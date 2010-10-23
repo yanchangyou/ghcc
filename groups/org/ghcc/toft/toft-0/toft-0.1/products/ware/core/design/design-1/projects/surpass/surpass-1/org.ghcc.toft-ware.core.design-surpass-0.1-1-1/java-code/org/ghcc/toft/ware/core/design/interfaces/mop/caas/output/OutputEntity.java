@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface OutputEntity extends Output, Entity {
+public interface OutputEntity extends Output, Entity, OutputCOP {
 }

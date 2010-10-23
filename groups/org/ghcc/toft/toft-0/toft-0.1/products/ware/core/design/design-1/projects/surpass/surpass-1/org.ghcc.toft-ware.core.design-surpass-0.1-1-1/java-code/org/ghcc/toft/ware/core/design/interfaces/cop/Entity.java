@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop;
  */
 
 
-public interface Entity {
+public interface Entity extends COP {
 }

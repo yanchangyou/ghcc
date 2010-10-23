@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.concept.caas;
  */
 
 
-public interface Ware {
+public interface Ware extends CAAS {
 }

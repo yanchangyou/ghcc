@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
  */
 
 
-public interface OutputLoader extends Output, Loader {
+public interface OutputLoader extends Output, Loader, OutputCOPLifeCycle {
 }

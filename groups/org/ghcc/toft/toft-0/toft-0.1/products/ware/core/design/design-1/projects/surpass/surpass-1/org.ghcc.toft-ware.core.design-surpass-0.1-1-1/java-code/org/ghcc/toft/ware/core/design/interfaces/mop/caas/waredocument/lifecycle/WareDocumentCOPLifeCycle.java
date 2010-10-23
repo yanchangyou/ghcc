@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycl
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.COPLifeCycle;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.WareDocumentCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.COPLifeCycle;
  */
 
 
-public interface WareDocumentCOPLifeCycle extends WareDocument, COPLifeCycle {
+public interface WareDocumentCOPLifeCycle extends WareDocument, COPLifeCycle, WareDocumentCOP {
 }

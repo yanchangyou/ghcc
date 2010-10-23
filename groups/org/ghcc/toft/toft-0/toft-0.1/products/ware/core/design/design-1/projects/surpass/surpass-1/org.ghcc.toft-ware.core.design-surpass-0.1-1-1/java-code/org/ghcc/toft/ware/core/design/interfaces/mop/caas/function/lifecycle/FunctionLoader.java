@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
  */
 
 
-public interface FunctionLoader extends Function, Loader {
+public interface FunctionLoader extends Function, Loader, FunctionCOPLifeCycle {
 }
