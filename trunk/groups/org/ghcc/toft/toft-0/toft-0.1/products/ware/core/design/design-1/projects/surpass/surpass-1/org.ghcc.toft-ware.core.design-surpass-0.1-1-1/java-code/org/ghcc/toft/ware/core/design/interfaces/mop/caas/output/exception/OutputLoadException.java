@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.LoadException;
  */
 
 
-public interface OutputLoadException extends Output, LoadException {
+public class OutputLoadException extends LoadException implements Output, OutputCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8743534877206520263L;
 }

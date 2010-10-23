@@ -4,6 +4,8 @@
 
 package org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle;
 
+import org.ghcc.toft.ware.core.design.interfaces.cop.COP;
+
 
 
 /**
@@ -17,5 +19,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle;
  */
 
 
-public interface COPLifeCycle {
+public interface COPLifeCycle extends COP {
 }

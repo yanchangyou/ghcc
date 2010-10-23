@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
  */
 
 
-public interface WareDocumentBuilder extends WareDocument, Builder {
+public interface WareDocumentBuilder extends WareDocument, Builder, WareDocumentCOPLifeCycle {
 }

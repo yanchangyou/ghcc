@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.define.COPDefine;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.WareDocumentCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.COPDefine;
  */
 
 
-public interface WareDocumentCOPDefine extends WareDocument, COPDefine {
+public interface WareDocumentCOPDefine extends WareDocument, COPDefine, WareDocumentCOP {
 }

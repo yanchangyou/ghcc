@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
  */
 
 
-public interface FunctionBuilder extends Function, Builder {
+public interface FunctionBuilder extends Function, Builder, FunctionCOPLifeCycle {
 }

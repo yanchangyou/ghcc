@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.Resource;
  */
 
 
-public interface FunctionResource extends Function, Resource {
+public interface FunctionResource extends Function, Resource, FunctionCOPDefine {
 }

@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.ID;
  */
 
 
-public interface OutputID extends Output, ID {
+public interface OutputID extends Output, ID, OutputCOPDefine {
 }

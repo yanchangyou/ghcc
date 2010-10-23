@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.Context;
  */
 
 
-public interface InputContext extends Input, Context {
+public interface InputContext extends Input, Context, InputCOPDefine {
 }

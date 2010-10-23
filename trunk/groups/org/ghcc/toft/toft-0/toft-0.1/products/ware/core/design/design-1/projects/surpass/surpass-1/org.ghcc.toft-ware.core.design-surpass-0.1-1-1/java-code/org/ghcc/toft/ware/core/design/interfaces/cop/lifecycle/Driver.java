@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle;
  */
 
 
-public interface Driver {
+public interface Driver extends COPLifeCycle {
 }

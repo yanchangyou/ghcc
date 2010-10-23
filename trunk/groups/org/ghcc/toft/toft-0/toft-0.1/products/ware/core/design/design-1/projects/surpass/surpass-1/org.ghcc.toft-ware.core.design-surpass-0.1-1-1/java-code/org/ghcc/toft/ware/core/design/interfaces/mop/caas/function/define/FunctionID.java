@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.ID;
  */
 
 
-public interface FunctionID extends Function, ID {
+public interface FunctionID extends Function, ID, FunctionCOPDefine {
 }

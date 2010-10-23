@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Input;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.COPLifeCycle;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.InputCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.COPLifeCycle;
  */
 
 
-public interface InputCOPLifeCycle extends Input, COPLifeCycle {
+public interface InputCOPLifeCycle extends Input, COPLifeCycle, InputCOP {
 }

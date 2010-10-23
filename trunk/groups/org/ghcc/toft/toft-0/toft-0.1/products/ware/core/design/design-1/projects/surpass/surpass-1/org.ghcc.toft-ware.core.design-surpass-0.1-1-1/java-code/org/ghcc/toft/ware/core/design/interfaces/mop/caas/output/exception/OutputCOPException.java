@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.exception;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
 import org.ghcc.toft.ware.core.design.interfaces.cop.exception.COPException;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.OutputCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.COPException;
  */
 
 
-public interface OutputCOPException extends Output, COPException {
+public interface OutputCOPException extends Output, COPException, OutputCOP {
 }

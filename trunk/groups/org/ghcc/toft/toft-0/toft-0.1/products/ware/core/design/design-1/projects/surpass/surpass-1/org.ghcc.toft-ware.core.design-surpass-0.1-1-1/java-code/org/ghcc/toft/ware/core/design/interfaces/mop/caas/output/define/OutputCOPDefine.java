@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.define;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
 import org.ghcc.toft.ware.core.design.interfaces.cop.define.COPDefine;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.OutputCOP;
 
 
 /**
@@ -19,5 +20,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.COPDefine;
  */
 
 
-public interface OutputCOPDefine extends Output, COPDefine {
+public interface OutputCOPDefine extends Output, COPDefine, OutputCOP {
 }

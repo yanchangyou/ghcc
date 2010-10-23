@@ -17,5 +17,10 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.exception;
  */
 
 
-public interface LoadException {
+public class LoadException extends Exception implements COPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -984582587455087754L;
 }

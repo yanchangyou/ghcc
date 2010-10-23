@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface WareEntity extends Ware, Entity {
+public interface WareEntity extends Ware, Entity, WareCOP {
 }

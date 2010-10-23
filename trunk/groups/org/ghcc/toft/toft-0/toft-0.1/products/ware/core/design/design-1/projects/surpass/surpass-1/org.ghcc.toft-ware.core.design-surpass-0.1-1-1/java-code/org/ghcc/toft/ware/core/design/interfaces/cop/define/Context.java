@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.define;
  */
 
 
-public interface Context {
+public interface Context extends COPDefine {
 }

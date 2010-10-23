@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
  */
 
 
-public interface WareDriver extends Ware, Driver {
+public interface WareDriver extends Ware, Driver, WareCOPLifeCycle {
 }

@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.PathInfo;
  */
 
 
-public interface FunctionPathInfo extends Function, PathInfo {
+public interface FunctionPathInfo extends Function, PathInfo, FunctionCOPDefine {
 }

@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.RecycleException;
  */
 
 
-public interface WareRecycleException extends Ware, RecycleException {
+public class WareRecycleException extends RecycleException implements Ware, WareCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2632832732068886515L;
 }

@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.BuildException;
  */
 
 
-public interface WareDocumentBuildException extends WareDocument, BuildException {
+public class WareDocumentBuildException extends BuildException implements WareDocument, WareDocumentCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1456915347858470023L;
 }

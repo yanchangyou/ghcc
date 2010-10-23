@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.Resource;
  */
 
 
-public interface InputResource extends Input, Resource {
+public interface InputResource extends Input, Resource, InputCOPDefine {
 }

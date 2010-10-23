@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle;
  */
 
 
-public interface Builder {
+public interface Builder extends COPLifeCycle {
 }

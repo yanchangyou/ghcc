@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Concept;
  */
 
 
-public interface OutputConcept extends Output, Concept {
+public interface OutputConcept extends Output, Concept, OutputCOP {
 }

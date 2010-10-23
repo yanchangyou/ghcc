@@ -17,5 +17,5 @@ package org.ghcc.toft.ware.core.design.interfaces.concept.caas;
  */
 
 
-public interface Function {
+public interface Function extends CAAS {
 }

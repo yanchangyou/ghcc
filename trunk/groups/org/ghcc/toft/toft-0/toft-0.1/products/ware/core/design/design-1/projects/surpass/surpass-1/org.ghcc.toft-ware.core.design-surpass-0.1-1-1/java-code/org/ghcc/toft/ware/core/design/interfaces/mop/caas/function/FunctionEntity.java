@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.Entity;
  */
 
 
-public interface FunctionEntity extends Function, Entity {
+public interface FunctionEntity extends Function, Entity, FunctionCOP {
 }

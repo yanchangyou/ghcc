@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
  */
 
 
-public interface FunctionRecycler extends Function, Recycler {
+public interface FunctionRecycler extends Function, Recycler, FunctionCOPLifeCycle {
 }

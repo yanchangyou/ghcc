@@ -19,5 +19,10 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.exception.DriveException;
  */
 
 
-public interface WareDriveException extends Ware, DriveException {
+public class WareDriveException extends DriveException implements Ware, WareCOPException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5073469494747564310L;
 }

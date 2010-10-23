@@ -19,5 +19,5 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Builder;
  */
 
 
-public interface WareBuilder extends Ware, Builder {
+public interface WareBuilder extends Ware, Builder, WareCOPLifeCycle {
 }
