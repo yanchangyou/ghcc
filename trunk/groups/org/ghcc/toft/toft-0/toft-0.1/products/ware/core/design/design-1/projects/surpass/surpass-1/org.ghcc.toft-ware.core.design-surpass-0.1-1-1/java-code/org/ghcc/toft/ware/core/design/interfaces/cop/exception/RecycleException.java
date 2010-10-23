@@ -23,4 +23,14 @@ public class RecycleException extends Exception implements COPException {
 	 * 
 	 */
 	private static final long serialVersionUID = -4473781849900244454L;
+	
+	protected Exception javaException;
+	
+	public void setJavaException(Exception javaException) {
+		this.javaException = javaException;
+	}
+
+	public Exception getJavaException() {
+		return javaException;
+	}
 }
