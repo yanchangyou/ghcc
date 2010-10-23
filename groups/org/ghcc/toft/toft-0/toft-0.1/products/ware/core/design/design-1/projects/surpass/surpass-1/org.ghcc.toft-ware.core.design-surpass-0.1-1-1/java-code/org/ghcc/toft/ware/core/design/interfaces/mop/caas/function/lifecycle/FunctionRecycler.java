@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.FunctionEntity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.exception.FunctionRecycleException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
 
 
 public interface FunctionRecycler extends Function, Recycler, FunctionCOPLifeCycle {
+
+	public void recycly(FunctionEntity entity) throws FunctionRecycleException;
+
 }

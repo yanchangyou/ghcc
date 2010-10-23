@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.define.FunctionContext;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.exception.FunctionDriveException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
 
 
 public interface FunctionDriver extends Function, Driver, FunctionCOPLifeCycle {
+
+	public void drive(FunctionContext context) throws FunctionDriveException;
+
 }

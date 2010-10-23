@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.define.OutputContext;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.exception.OutputDriveException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Driver;
 
 
 public interface OutputDriver extends Output, Driver, OutputCOPLifeCycle {
+
+	public void drive(OutputContext context) throws OutputDriveException;
+
 }

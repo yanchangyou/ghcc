@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycl
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.WareDocumentEntity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.exception.WareDocumentRecycleException;
 
 
 /**
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Recycler;
 
 
 public interface WareDocumentRecycler extends WareDocument, Recycler, WareDocumentCOPLifeCycle {
+
+	public void recycly(WareDocumentEntity entity) throws WareDocumentRecycleException;
+
 }
