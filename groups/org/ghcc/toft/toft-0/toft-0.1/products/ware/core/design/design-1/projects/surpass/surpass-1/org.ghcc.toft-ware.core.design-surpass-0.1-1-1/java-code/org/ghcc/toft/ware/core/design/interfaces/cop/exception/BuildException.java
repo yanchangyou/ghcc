@@ -19,8 +19,15 @@ package org.ghcc.toft.ware.core.design.interfaces.cop.exception;
 
 public class BuildException extends Exception implements COPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7312994796536818974L;
+
+	protected Exception javaException;
+	
+	public void setJavaException(Exception javaException) {
+		this.javaException = javaException;
+	}
+
+	public Exception getJavaException() {
+		return javaException;
+	}
 }

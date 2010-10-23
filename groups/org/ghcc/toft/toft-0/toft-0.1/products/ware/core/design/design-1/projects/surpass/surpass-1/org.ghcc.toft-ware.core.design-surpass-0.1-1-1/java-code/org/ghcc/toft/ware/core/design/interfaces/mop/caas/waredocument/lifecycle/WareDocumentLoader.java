@@ -5,9 +5,8 @@
 package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
-import org.ghcc.toft.ware.core.design.interfaces.cop.define.ID;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
-import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.WareEntity;
+import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.WareDocumentEntity;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define.WareDocumentID;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define.WareDocumentPathInfo;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.exception.WareDocumentLoadException;
@@ -26,8 +25,8 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.exception
 
 public interface WareDocumentLoader extends WareDocument, Loader, WareDocumentCOPLifeCycle {
 
-	public WareEntity load(WareDocumentID id) throws WareDocumentLoadException;
+	public WareDocumentEntity load(WareDocumentID id) throws WareDocumentLoadException;
 
-	public WareEntity load(WareDocumentPathInfo pathInfo, ID id) throws WareDocumentLoadException;
+	public WareDocumentEntity load(WareDocumentPathInfo pathInfo, WareDocumentID id) throws WareDocumentLoadException;
 
 }

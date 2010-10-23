@@ -20,4 +20,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.COP;
 
 
 public interface COPException extends COP {
+	
+	public Exception getJavaException();
+	
 }

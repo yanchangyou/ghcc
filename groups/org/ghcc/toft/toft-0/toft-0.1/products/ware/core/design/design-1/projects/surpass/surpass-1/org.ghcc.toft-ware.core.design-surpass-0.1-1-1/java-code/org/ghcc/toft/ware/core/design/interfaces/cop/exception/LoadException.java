@@ -23,4 +23,14 @@ public class LoadException extends Exception implements COPException {
 	 * 
 	 */
 	private static final long serialVersionUID = -984582587455087754L;
+	
+	protected Exception javaException;
+	
+	public void setJavaException(Exception javaException) {
+		this.javaException = javaException;
+	}
+
+	public Exception getJavaException() {
+		return javaException;
+	}
 }

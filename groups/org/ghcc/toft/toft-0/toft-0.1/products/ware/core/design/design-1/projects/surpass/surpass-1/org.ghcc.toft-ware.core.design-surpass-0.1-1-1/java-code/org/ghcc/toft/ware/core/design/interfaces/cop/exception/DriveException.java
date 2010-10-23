@@ -23,4 +23,14 @@ public class DriveException extends Exception implements COPException {
 	 * 
 	 */
 	private static final long serialVersionUID = -8700814991757758068L;
+	
+	protected Exception javaException;
+	
+	public void setJavaException(Exception javaException) {
+		this.javaException = javaException;
+	}
+
+	public Exception getJavaException() {
+		return javaException;
+	}
 }

@@ -4,6 +4,8 @@
 
 package org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define;
 
+import java.net.URL;
+
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.WareDocument;
 import org.ghcc.toft.ware.core.design.interfaces.cop.define.PathInfo;
 
@@ -20,4 +22,7 @@ import org.ghcc.toft.ware.core.design.interfaces.cop.define.PathInfo;
 
 
 public interface WareDocumentPathInfo extends WareDocument, PathInfo, WareDocumentCOPDefine {
+	
+	public URL getWareDocumentPathURL();
+	
 }
