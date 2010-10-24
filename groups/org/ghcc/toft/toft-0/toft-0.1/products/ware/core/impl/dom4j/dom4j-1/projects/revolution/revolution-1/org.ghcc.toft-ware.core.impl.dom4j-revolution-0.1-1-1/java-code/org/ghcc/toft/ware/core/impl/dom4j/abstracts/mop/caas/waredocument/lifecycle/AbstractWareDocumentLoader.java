@@ -18,6 +18,7 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define.Wa
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.exception.WareDocumentLoadException;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycle.WareDocumentLoader;
 import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.waredocument.AbstractWareDocumentEntity;
+import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.waredocument.define.AbstractWareDocumentPathInfo;
 
 
 /**
@@ -61,7 +62,7 @@ public class AbstractWareDocumentLoader extends AbstractWareDocumentCOPLifeCycle
 	public AbstractWareDocumentEntity load(WareDocumentPathInfo pathInfo, WareDocumentID id)
 			throws WareDocumentLoadException {
 		AbstractWareDocumentEntity wareDocumentEntity = null;
-		URL url = pathInfo.getWareDocumentPathURL();
+		URL url = ((AbstractWareDocumentPathInfo)pathInfo).getWareDocumentPathURL();
 		try {
 			URL realURL = new URL(url, id.getID());
 			SAXReader saxReader = new SAXReader();

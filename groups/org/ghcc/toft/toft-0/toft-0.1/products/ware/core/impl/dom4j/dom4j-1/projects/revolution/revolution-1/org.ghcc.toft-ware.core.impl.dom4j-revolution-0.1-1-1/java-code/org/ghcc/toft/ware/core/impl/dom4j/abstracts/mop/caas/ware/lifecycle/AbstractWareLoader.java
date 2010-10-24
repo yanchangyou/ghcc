@@ -18,6 +18,7 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.exception.WareLoa
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.lifecycle.WareLoader;
 import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.ware.AbstractWareEntity;
 import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.ware.define.AbstractWareID;
+import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.ware.define.AbstractWarePathInfo;
 
 
 /**
@@ -68,7 +69,7 @@ public class AbstractWareLoader extends AbstractWareCOPLifeCycle implements Ware
 
 	public AbstractWareEntity load(WarePathInfo pathInfo, WareID id)
 			throws WareLoadException {
-		URLClassLoader loader = new URLClassLoader(pathInfo.getPathURLList().toArray(new URL[0]));
+		URLClassLoader loader = new URLClassLoader(((AbstractWarePathInfo)pathInfo).getPathURLList().toArray(new URL[0]));
 		String wareClassName = ((AbstractWareID)id).getWareClassName();
 		AbstractWareEntity entity = loadWareEntity(loader, wareClassName);
 		entity.setWareID(id);
