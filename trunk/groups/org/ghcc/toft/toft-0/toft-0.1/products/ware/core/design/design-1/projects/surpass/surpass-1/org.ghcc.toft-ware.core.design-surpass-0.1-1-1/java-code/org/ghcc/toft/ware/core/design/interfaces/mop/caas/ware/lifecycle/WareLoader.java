@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Ware;
-import org.ghcc.toft.ware.core.design.interfaces.cop.define.ID;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.WareEntity;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.define.WareID;
@@ -28,6 +27,6 @@ public interface WareLoader extends Ware, Loader, WareCOPLifeCycle {
 
 	public WareEntity load(WareID id) throws WareLoadException;
 
-	public WareEntity load(WarePathInfo pathInfo, ID id) throws WareLoadException;
+	public WareEntity load(WarePathInfo pathInfo, WareID id) throws WareLoadException;
 
 }

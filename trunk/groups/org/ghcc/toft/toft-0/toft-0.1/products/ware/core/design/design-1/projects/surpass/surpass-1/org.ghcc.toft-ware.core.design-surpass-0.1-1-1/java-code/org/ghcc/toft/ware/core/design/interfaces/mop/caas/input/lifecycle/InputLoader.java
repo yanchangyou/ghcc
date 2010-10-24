@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Input;
-import org.ghcc.toft.ware.core.design.interfaces.cop.define.ID;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.InputEntity;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.input.define.InputID;
@@ -28,6 +27,6 @@ public interface InputLoader extends Input, Loader, InputCOPLifeCycle {
 
 	public InputEntity load(InputID id) throws InputLoadException;
 
-	public InputEntity load(InputPathInfo pathInfo, ID id) throws InputLoadException;
+	public InputEntity load(InputPathInfo pathInfo, InputID id) throws InputLoadException;
 
 }

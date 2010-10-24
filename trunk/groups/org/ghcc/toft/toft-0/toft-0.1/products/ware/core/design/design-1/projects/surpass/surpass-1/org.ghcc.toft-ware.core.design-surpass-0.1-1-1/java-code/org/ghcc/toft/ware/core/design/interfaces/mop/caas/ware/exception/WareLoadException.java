@@ -25,4 +25,9 @@ public class WareLoadException extends LoadException implements Ware, WareCOPExc
 	 * 
 	 */
 	private static final long serialVersionUID = 4476768262925050136L;
+	
+	public WareLoadException(Exception e)  {
+		this.javaException = e;
+	}
+	
 }

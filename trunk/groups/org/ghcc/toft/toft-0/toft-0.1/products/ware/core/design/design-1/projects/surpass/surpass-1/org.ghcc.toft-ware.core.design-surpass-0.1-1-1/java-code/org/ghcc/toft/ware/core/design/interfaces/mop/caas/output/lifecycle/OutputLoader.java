@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.lifecycle;
 
 import org.ghcc.toft.ware.core.design.interfaces.concept.caas.Output;
-import org.ghcc.toft.ware.core.design.interfaces.cop.define.ID;
 import org.ghcc.toft.ware.core.design.interfaces.cop.lifecycle.Loader;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.OutputEntity;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.output.define.OutputID;
@@ -28,6 +27,6 @@ public interface OutputLoader extends Output, Loader, OutputCOPLifeCycle {
 
 	public OutputEntity load(OutputID id) throws OutputLoadException;
 
-	public OutputEntity load(OutputPathInfo pathInfo, ID id) throws OutputLoadException;
+	public OutputEntity load(OutputPathInfo pathInfo, OutputID id) throws OutputLoadException;
 
 }
