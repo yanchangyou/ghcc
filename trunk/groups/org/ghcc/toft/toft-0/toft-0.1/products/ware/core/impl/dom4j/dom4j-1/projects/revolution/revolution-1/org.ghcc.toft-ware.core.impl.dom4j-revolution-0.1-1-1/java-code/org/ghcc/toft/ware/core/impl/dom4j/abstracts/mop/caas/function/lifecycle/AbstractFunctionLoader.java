@@ -18,6 +18,7 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.exception.Fun
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.lifecycle.FunctionLoader;
 import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.function.AbstractFunctionEntity;
 import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.function.define.AbstractFunctionID;
+import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.function.define.AbstractFunctionPathInfo;
 
 /**
  * AbstractFunctionLoader
@@ -69,7 +70,7 @@ public class AbstractFunctionLoader extends AbstractFunctionCOPLifeCycle
 
 	public AbstractFunctionEntity load(FunctionPathInfo pathInfo, FunctionID id)
 			throws FunctionLoadException {
-		URLClassLoader loader = new URLClassLoader(pathInfo.getPathURLList().toArray(new URL[0]));
+		URLClassLoader loader = new URLClassLoader(((AbstractFunctionPathInfo)pathInfo).getPathURLList().toArray(new URL[0]));
 		return laodFunctionEntity(loader, ((AbstractFunctionID) id).getFunctionClassName());
 	}
 }
