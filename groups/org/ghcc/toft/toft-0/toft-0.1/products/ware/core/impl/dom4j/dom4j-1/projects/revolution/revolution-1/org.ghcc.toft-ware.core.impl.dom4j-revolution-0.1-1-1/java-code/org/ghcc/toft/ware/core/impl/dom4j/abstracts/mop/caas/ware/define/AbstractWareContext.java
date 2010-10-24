@@ -5,6 +5,7 @@
 package org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.ware.define;
 
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.define.WareContext;
+import org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.function.define.AbstractFunctionResource;
 
 
 /**
@@ -19,4 +20,20 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.define.WareContex
 
 
 public class AbstractWareContext extends AbstractWareCOPDefine implements WareContext {
+	
+	protected AbstractFunctionResource functionResource;
+	
+	public AbstractWareContext(AbstractFunctionResource functionResource) {
+		setFunctionResource(functionResource);
+	}
+
+	public AbstractFunctionResource getFunctionResource() {
+		return functionResource;
+	}
+
+	protected void setFunctionResource(AbstractFunctionResource functionResource) {
+		this.functionResource = functionResource;
+	}
+	
+	
 }

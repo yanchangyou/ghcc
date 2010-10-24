@@ -70,7 +70,7 @@ public class AbstractWareDocumentLoader extends AbstractWareDocumentCOPLifeCycle
 			if (wareDocumentFile.exists()) {
 				document = saxReader.read(wareDocumentFile);
 			} else {
-				document = saxReader.read(new InputStreamReader(url.openStream()));
+				document = saxReader.read(new InputStreamReader(realURL.openStream()));
 			}
 			wareDocumentEntity = new AbstractWareDocumentEntity(document);
 			

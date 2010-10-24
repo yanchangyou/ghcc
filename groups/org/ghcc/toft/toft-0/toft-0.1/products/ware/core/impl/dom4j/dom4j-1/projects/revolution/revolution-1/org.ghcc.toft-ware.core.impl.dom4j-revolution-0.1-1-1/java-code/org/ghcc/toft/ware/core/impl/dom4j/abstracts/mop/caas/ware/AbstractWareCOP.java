@@ -18,5 +18,5 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.WareCOP;
  */
 
 
-public class AbstractWareCOP extends AbstractWareCOP implements WareCOP {
+public class AbstractWareCOP implements WareCOP {
 }

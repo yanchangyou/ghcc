@@ -18,5 +18,8 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.WareConcept;
  */
 
 
-public class AbstractWareConcept extends AbstractWareCOP implements WareConcept {
+public interface AbstractWareConcept extends WareConcept {
+	
+//	public void exectute(AbstractFunctionResource functionResource);
+	
 }

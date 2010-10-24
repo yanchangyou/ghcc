@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.function.define;
 
+import org.dom4j.Element;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.define.FunctionContext;
 
 
@@ -19,4 +20,19 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.function.define.Functi
 
 
 public class AbstractFunctionContext extends AbstractFunctionCOPDefine implements FunctionContext {
+	
+	protected Element functionElement;
+	
+	public AbstractFunctionContext(Element functionElement) {
+		setFunctionElement(functionElement);
+	}
+
+	public Element getFunctionElement() {
+		return functionElement;
+	}
+
+	public void setFunctionElement(Element functionElement) {
+		this.functionElement = functionElement;
+	}
+
 }

@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.core.impl.dom4j.abstracts.mop.caas.ware.define;
 
+import org.dom4j.Namespace;
 import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.define.WareResource;
 
 
@@ -19,4 +20,18 @@ import org.ghcc.toft.ware.core.design.interfaces.mop.caas.ware.define.WareResour
 
 
 public class AbstractWareResource extends AbstractWareCOPDefine implements WareResource {
+	
+	protected Namespace nameSpace;
+
+	public AbstractWareResource(Namespace nameSpace) {
+		setNameSpace(nameSpace);
+	}
+	
+	public Namespace getNameSpace() {
+		return nameSpace;
+	}
+
+	public void setNameSpace(Namespace nameSpace) {
+		this.nameSpace = nameSpace;
+	}
 }

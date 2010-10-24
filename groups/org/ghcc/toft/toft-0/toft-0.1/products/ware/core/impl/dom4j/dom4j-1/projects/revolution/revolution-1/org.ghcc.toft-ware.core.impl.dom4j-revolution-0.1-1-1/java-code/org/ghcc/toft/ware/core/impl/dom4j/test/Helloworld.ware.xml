@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hello:hello  xmlns:hello="https://ghcc.googlecode.com/svn/trunk/org.ghcc.toft-ware.core.impl.dom4j-revolution-0.1-1-1">
+	Hello, World!
+	<hello:test-find>1</hello:test-find>
+</hello:hello>
