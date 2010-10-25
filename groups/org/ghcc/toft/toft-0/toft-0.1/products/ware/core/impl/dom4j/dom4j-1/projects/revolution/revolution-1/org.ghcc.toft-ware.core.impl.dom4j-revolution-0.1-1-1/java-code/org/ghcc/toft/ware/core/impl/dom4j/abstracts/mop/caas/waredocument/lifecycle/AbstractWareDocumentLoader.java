@@ -56,13 +56,13 @@ public class AbstractWareDocumentLoader extends AbstractWareDocumentCOPLifeCycle
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.lifecycle.WareDocumentLoader#load(org.ghcc.toft.ware.core.design.interfaces.mop.caas.waredocument.define.WareDocumentPathInfo, org.ghcc.toft.ware.core.design.interfaces.cop.define.ID)
+	/**
+	 *  TODO : 改进loader, 使用 字符串类名方式, 使用loader加载, 便于远程处理
 	 */
 	public AbstractWareDocumentEntity load(WareDocumentPathInfo pathInfo, WareDocumentID id)
 			throws WareDocumentLoadException {
 		AbstractWareDocumentEntity wareDocumentEntity = null;
-		URL url = ((AbstractWareDocumentPathInfo)pathInfo).getWareDocumentPathURL();
+		URL url = ((AbstractWareDocumentPathInfo)pathInfo).getWareDocumentPathURL(); //TODO:避免在使用时类型转换, 后期单独转换
 		try {
 			URL realURL = new URL(url, id.getID());
 			SAXReader saxReader = new SAXReader();

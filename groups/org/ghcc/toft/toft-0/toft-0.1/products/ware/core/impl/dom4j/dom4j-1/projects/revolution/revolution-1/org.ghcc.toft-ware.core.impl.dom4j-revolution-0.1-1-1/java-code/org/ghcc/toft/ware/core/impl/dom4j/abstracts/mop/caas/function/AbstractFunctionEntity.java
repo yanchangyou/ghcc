@@ -75,6 +75,8 @@ public class AbstractFunctionEntity extends AbstractFunctionCOP implements Funct
 		
 		AbstractFunctionLoader loader = new AbstractFunctionLoader();
 		
+//		Thread.currentThread().getContextClassLoader().
+		
 		FunctionID id = new AbstractFunctionID(wareID, "test-find");
 		
 		List<URL> functionPathURLList = new ArrayList<URL>();
