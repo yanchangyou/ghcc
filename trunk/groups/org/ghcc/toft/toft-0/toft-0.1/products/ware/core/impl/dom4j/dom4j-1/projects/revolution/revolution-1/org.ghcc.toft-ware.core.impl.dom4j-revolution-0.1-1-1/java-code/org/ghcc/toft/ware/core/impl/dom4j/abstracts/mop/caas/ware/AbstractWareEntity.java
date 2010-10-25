@@ -93,6 +93,9 @@ public class AbstractWareEntity extends AbstractWareCOP implements WareEntity, A
 		this.resource = resource;
 	}
 
+	/**
+	 * TODO : drive部分尽量简洁, 后期单独一个方法抽象处理 ware转交到function的接口
+	 */
 	public void drive(WareContext context) throws WareDriveException {
 //		System.out.println("entity is run");
 		AbstractWareContext wareContext = (AbstractWareContext)context;
