@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * JavaBodyCopy
@@ -29,10 +30,13 @@ public class JavaUtil {
 //		
 //		String toDirectory = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/norm/interfaces";
 		
-		String fromWareDocument = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/norm/0/2/0/1/up/org.ghcc.toft-ware.norm-0.2-0.1-up/java-code/org/ghcc/toft/ware/norm/interfaces/mop/caas/waredocument"; 
-		String toWareDocument = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/norm/interfaces/mop/caas/machine"; 
+//		String fromWareDocument = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/norm/0/2/0/1/up/org.ghcc.toft-ware.norm-0.2-0.1-up/java-code/org/ghcc/toft/ware/norm/interfaces/mop/caas/waredocument"; 
+//		String toWareDocument = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/norm/interfaces/mop/caas/machine"; 
 		
-		copyFile(fromWareDocument, toWareDocument);
+//		copyFile(fromWareDocument, toWareDocument);
+		
+//		String data = "public class Ware {}";
+//		System.out.println(data.replaceAll("\\b" + "Ware" + "\\b", "EtherWare"));
 		
 		
 	}
@@ -73,14 +77,22 @@ public class JavaUtil {
 //		index = java.indexOf('{', index) + 4;
 		return index;
 	}
-	
+
 	public static String getJavaName(String javaFilePath) {
 		return javaFilePath.substring(javaFilePath.lastIndexOf('/')+1).replaceAll(".java", "");
 	}
+
+	public static String getJavaName(File file) {
+		return getJavaName(file.getAbsolutePath().replace('\\', '/'));
+	}
 	
 	public static String readFileToString(String filePath) throws Exception {
+		return readFileToString(new File(filePath));
+	}
+	
+	public static String readFileToString(File file) throws Exception {
 		StringBuffer buf = new StringBuffer();
-		BufferedReader reader = new BufferedReader(new FileReader(filePath));
+		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String str = null;
 		while((str = reader.readLine()) != null) {
 			buf.append(str);
@@ -91,9 +103,45 @@ public class JavaUtil {
 	}
 	
 	public static void writeFile(String java, String javaPath) throws Exception {
-		FileWriter writer = new FileWriter(javaPath);
+		writeFile(java, new File(javaPath));
+	}
+	
+	public static void createJavaFile(File file) throws Exception {
+		if (file.exists() == false) {
+			String path = file.getAbsolutePath().replace('\\', '/');
+			if (path.indexOf(".java") != -1) {
+				String dir = path.substring(0, path.lastIndexOf('/') + 1);
+				new File(dir).mkdirs();
+				file.createNewFile();
+			}
+		}
+	}
+	/**
+	 * @param java
+	 * @param file
+	 * @throws IOException 
+	 */
+	public static void writeFile(String java, File file) throws IOException {
+		FileWriter writer = new FileWriter(file);
 		writer.write(java);
 		writer.flush();
 		writer.close();
+	}
+	
+	/**
+	 * 删除所有文件
+	 * @param file
+	 */
+	public static void deleteAll(File file) {
+		if (file.exists()) {
+			if (file.isFile()) {
+				System.out.println("delete file : " + file);
+				file.delete();
+			} else {
+				for (File subFile : file.listFiles()) {
+					deleteAll(subFile);
+				}
+			}
+		}
 	}
 }
