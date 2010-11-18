@@ -38,6 +38,11 @@ public class JavaUtil {
 //		String data = "public class Ware {}";
 //		System.out.println(data.replaceAll("\\b" + "Ware" + "\\b", "EtherWare"));
 		
+//		File file = new File("L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/vendor/ether/design/interfaces/mop/caas/EtherMOP.java");
+//		System.out.println(getGHCCJavaPackageName(file));
+		
+//		System.out.println("DefaultEther".replaceAll("(?<=[A-Z][a-z]{1,10})\\w+", ""));
+		System.out.println("L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/vendor/ether/impl/defaults/mop/caas/machine/exception/AbstractEtherMachineDriveException.java".replaceAll("Abstract" + "(\\w+).java", "Default" + "$1.java"));
 		
 	}
 	public static void copyFile(String fromDirectory, String toDirectory) {
@@ -84,6 +89,27 @@ public class JavaUtil {
 
 	public static String getJavaName(File file) {
 		return getJavaName(file.getAbsolutePath().replace('\\', '/'));
+	}
+
+	public static String getGHCCJavaPackageName(File file) {
+		String path = file.getAbsolutePath();
+		return getGHCCJavaPackageName(path);
+	}
+
+	public static String getGHCCJavaFullClassName(File file) {
+		String packageName = getGHCCJavaPackageName(file);
+		String className = getJavaName(file);
+		return packageName + "." + className;
+	}
+
+	public static String getGHCCJavaPackageName(String path) {
+		String packageName = null;
+		path = path.replace('\\', '/');
+		
+		path = path.substring(path.lastIndexOf("org/ghcc/"), path.lastIndexOf('/'));
+		
+		packageName = path.replace('/', '.');
+		return packageName;
 	}
 	
 	public static String readFileToString(String filePath) throws Exception {
