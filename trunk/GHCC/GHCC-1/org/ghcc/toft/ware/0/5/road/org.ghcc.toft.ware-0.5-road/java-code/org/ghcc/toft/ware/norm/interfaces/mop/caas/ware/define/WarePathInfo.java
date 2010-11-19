@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.PathInfo;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public interface WarePathInfo extends Ware, PathInfo, WareCOPDefine {
+public interface WarePathInfo extends PathInfo, WareCOPDefine {
 }

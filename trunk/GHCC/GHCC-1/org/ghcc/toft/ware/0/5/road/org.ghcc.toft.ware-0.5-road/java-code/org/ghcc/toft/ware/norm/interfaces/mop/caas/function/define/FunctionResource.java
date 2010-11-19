@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Resource;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
  */
 
 
-public interface FunctionResource extends Function, Resource, FunctionCOPDefine {
+public interface FunctionResource extends Resource, FunctionCOPDefine {
 }

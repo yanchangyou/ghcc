@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Context;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public interface MachineContext extends Machine, Context, MachineCOPDefine {
+public interface MachineContext extends Context, MachineCOPDefine {
 }

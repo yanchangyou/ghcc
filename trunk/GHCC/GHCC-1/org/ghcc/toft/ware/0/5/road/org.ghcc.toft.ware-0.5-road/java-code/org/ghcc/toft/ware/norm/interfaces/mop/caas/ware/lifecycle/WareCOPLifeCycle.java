@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.lifecycle;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.COPLifeCycle;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.WareCOP;
 
@@ -20,5 +19,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.WareCOP;
  */
 
 
-public interface WareCOPLifeCycle extends Ware, COPLifeCycle, WareCOP {
+public interface WareCOPLifeCycle extends COPLifeCycle, WareCOP {
 }

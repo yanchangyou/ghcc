@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.Concept;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public interface MachineConcept extends Machine, Concept, MachineCOP {
+public interface MachineConcept extends Concept, MachineCOP {
 }

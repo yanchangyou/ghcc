@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Recycler;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.MachineEntity;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineRecycleException;
@@ -21,7 +20,7 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineRecy
  */
 
 
-public interface MachineRecycler extends Machine, Recycler, MachineCOPLifeCycle {
+public interface MachineRecycler extends Recycler, MachineCOPLifeCycle {
 
 	public void recycly(MachineEntity entity) throws MachineRecycleException;
 

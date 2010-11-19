@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.BuildException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
  */
 
 
-public class FunctionBuildException extends BuildException implements Function, FunctionCOPException {
+public class FunctionBuildException extends BuildException implements FunctionCOPException {
 
 	/**
 	 * 

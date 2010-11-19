@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 import org.ghcc.toft.ware.norm.interfaces.cop.define.COPDefine;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.MachineCOP;
 
@@ -20,5 +19,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.MachineCOP;
  */
 
 
-public interface MachineCOPDefine extends Machine, COPDefine, MachineCOP {
+public interface MachineCOPDefine extends COPDefine, MachineCOP {
 }

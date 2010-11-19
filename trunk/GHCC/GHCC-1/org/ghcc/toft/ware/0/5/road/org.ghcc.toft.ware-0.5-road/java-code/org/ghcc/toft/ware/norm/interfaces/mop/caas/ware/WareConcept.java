@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.Concept;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public interface WareConcept extends Ware, Concept, WareCOP {
+public interface WareConcept extends Concept, WareCOP {
 }

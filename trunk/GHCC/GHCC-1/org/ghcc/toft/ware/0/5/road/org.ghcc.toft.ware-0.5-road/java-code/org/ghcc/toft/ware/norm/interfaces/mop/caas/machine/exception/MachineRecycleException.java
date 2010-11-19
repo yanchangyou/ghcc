@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.RecycleException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public class MachineRecycleException extends RecycleException implements Machine, MachineCOPException {
+public class MachineRecycleException extends RecycleException implements MachineCOPException {
 
 	/**
 	 * 

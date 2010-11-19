@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 import org.ghcc.toft.ware.norm.interfaces.cop.Entity;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.lifecycle.WareBuilder;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.lifecycle.WareDriver;
@@ -21,5 +20,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.lifecycle.WareDriver;
  */
 
 
-public interface WareEntity extends Ware, Entity, WareCOP, WareConcept, WareBuilder, WareDriver {
+public interface WareEntity extends Entity, WareCOP, WareConcept, WareBuilder, WareDriver {
 }

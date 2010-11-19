@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.PathInfo;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public interface MachinePathInfo extends Machine, PathInfo, MachineCOPDefine {
+public interface MachinePathInfo extends PathInfo, MachineCOPDefine {
 }

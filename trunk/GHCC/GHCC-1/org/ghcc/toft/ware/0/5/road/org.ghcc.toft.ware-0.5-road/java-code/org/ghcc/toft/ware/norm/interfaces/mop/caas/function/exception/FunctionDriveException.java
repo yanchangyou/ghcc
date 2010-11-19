@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.DriveException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
  */
 
 
-public class FunctionDriveException extends DriveException implements Function, FunctionCOPException {
+public class FunctionDriveException extends DriveException implements FunctionCOPException {
 
 	/**
 	 * 

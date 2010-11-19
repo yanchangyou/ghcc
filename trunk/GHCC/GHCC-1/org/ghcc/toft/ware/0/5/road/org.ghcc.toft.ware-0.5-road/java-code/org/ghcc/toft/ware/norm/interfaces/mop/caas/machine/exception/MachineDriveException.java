@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.DriveException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public class MachineDriveException extends DriveException implements Machine, MachineCOPException {
+public class MachineDriveException extends DriveException implements MachineCOPException {
 
 	/**
 	 * 

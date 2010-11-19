@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.Concept;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
  */
 
 
-public interface FunctionConcept extends Function, Concept, FunctionCOP {
+public interface FunctionConcept extends Concept, FunctionCOP {
 }

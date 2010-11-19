@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
  */
 
 
-public class FunctionLoadException extends LoadException implements Function, FunctionCOPException {
+public class FunctionLoadException extends LoadException implements FunctionCOPException {
 
 	/**
 	 * @param e

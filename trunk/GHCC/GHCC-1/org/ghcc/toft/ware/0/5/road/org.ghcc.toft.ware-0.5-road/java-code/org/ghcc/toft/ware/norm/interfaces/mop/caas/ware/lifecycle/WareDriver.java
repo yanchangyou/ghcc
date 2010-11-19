@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.lifecycle;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Driver;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define.WareContext;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception.WareDriveException;
@@ -21,7 +20,7 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception.WareDriveExcep
  */
 
 
-public interface WareDriver extends Ware, Driver, WareCOPLifeCycle {
+public interface WareDriver extends Driver, WareCOPLifeCycle {
 
 	public void drive(WareContext context) throws WareDriveException;
 

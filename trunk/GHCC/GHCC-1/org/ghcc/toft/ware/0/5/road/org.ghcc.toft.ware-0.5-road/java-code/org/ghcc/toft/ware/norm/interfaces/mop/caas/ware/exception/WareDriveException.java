@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.DriveException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public class WareDriveException extends DriveException implements Ware, WareCOPException {
+public class WareDriveException extends DriveException implements WareCOPException {
 
 	/**
 	 * 

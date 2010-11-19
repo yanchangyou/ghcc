@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.norm.interfaces.cop.define.COPDefine;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.FunctionCOP;
 
@@ -20,5 +19,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.FunctionCOP;
  */
 
 
-public interface FunctionCOPDefine extends Function, COPDefine, FunctionCOP {
+public interface FunctionCOPDefine extends COPDefine, FunctionCOP {
 }

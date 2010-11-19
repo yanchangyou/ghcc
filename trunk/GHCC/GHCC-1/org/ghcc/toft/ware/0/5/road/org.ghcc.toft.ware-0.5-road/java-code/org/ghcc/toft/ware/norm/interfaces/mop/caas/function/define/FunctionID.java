@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.ID;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
  */
 
 
-public interface FunctionID extends Function, ID, FunctionCOPDefine {
+public interface FunctionID extends ID, FunctionCOPDefine {
 }

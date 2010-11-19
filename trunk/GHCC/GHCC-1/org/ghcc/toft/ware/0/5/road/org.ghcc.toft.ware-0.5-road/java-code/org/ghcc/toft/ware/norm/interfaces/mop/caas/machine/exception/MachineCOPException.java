@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.MachineCOP;
 
@@ -20,5 +19,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.MachineCOP;
  */
 
 
-public interface MachineCOPException extends Machine, COPException, MachineCOP {
+public interface MachineCOPException extends COPException, MachineCOP {
 }
