@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.ID;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public interface WareID extends Ware, ID, WareCOPDefine {
+public interface WareID extends ID, WareCOPDefine {
 }

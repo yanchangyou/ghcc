@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 import org.ghcc.toft.ware.norm.interfaces.cop.Entity;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle.MachineBuilder;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle.MachineDriver;
@@ -21,5 +20,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle.MachineDriv
  */
 
 
-public interface MachineEntity extends Machine, Entity, MachineCOP, MachineConcept, MachineBuilder, MachineDriver {
+public interface MachineEntity extends Entity, MachineCOP, MachineConcept, MachineBuilder, MachineDriver {
 }

@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Resource;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public interface WareResource extends Ware, Resource, WareCOPDefine {
+public interface WareResource extends Resource, WareCOPDefine {
 }

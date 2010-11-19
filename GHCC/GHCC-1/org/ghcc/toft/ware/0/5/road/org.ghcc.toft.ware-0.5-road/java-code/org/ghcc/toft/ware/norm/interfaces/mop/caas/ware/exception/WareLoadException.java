@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public class WareLoadException extends LoadException implements Ware, WareCOPException {
+public class WareLoadException extends LoadException implements WareCOPException {
 
 	/**
 	 * 
@@ -28,6 +27,8 @@ public class WareLoadException extends LoadException implements Ware, WareCOPExc
 	
 	public WareLoadException(Exception e)  {
 		this.javaException = e;
+	}
+	public WareLoadException()  {
 	}
 	
 }

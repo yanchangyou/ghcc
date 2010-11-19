@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.BuildException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public class MachineBuildException extends BuildException implements Machine, MachineCOPException {
+public class MachineBuildException extends BuildException implements MachineCOPException {
 
 	/**
 	 * 

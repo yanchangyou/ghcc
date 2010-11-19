@@ -17,10 +17,12 @@ import java.util.Date;
 public class EtherDesignCodeMachine {
 	static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+	static String projectPath = new File("").getAbsolutePath().replace('\\', '/');
 	
 	
 	public static void main(String[] args) throws Exception {
 		
+		System.out.println(new File("").getAbsolutePath());
 		CopyAllFrame();
 		
 	}
@@ -30,33 +32,59 @@ public class EtherDesignCodeMachine {
 		String FROM_PACKAGE_NAME = "org.ghcc.toft.ware.norm";
 		String TO_PACKAGE_NAME = "org.ghcc.toft.ware.vendor.ether.design";
 		
-		String fromPath = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/norm";
-		String toPath = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/vendor/ether/design";
+		String fromPath = projectPath + "/java-code/org/ghcc/toft/ware/norm";
+		String toPath = projectPath + "/java-code/org/ghcc/toft/ware/vendor/ether/design";
 		String prefix = "Ether";
 	
 		copyFrame(fromPath, toPath, prefix, FROM_PACKAGE_NAME, TO_PACKAGE_NAME);
 		
+//
+//		FROM_PACKAGE_NAME = TO_PACKAGE_NAME + ".interfaces";
+//		TO_PACKAGE_NAME = "org.ghcc.toft.ware.vendor.ether.impl.abstracts";
+//		
+//		fromPath = toPath + "/interfaces";
+//		toPath = projectPath + "/java-code/org/ghcc/toft/ware/vendor/ether/impl/abstracts";
+//		prefix = "Abstract";
+//	
+//		copyDesignToAbstract(fromPath, toPath, prefix, FROM_PACKAGE_NAME, TO_PACKAGE_NAME);
+//		replaceInterfaceToClass(toPath);
+//		
+//		
+//		FROM_PACKAGE_NAME = TO_PACKAGE_NAME;
+//		TO_PACKAGE_NAME = "org.ghcc.toft.ware.vendor.ether.impl.defaults";
+//		
+//		fromPath = toPath;
+//		toPath = projectPath + "/java-code/org/ghcc/toft/ware/vendor/ether/impl/defaults";
+//		prefix = "Default";
+//	
+//		dealAbstractToDefaultFrame(fromPath, toPath, prefix, FROM_PACKAGE_NAME, TO_PACKAGE_NAME);
+//		replaceInterfaceToClassForAbstractToDefault(toPath);
+	}
+	
+	public static void copyDesignToAbstract(String fromPath, String toPath, String prefix, String FROM_PACKAGE_NAME, String TO_PACKAGE_NAME) 
+			throws Exception {
+		JavaUtil.deleteAll(new File(toPath));
+		copyFile(fromPath, toPath);
+		addClassPrefixInFile(toPath, prefix);
+		changeFileName(toPath, prefix);
+		changePackageName(toPath, FROM_PACKAGE_NAME, TO_PACKAGE_NAME);
+		addParentClass(toPath, FROM_PACKAGE_NAME, TO_PACKAGE_NAME, prefix);
+		removeMoreInteface(toPath);
+	}
+	public static void removeMoreInteface(final String FILE_PATH) throws Exception {
+		FileTraver.trave(new File(FILE_PATH), new FileDealer() {
 
-		FROM_PACKAGE_NAME = TO_PACKAGE_NAME + ".interfaces";
-		TO_PACKAGE_NAME = "org.ghcc.toft.ware.vendor.ether.impl.abstracts";
-		
-		fromPath = toPath + "/interfaces";
-		toPath = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/vendor/ether/impl/abstracts";
-		prefix = "Abstract";
-	
-		copyFrame(fromPath, toPath, prefix, FROM_PACKAGE_NAME, TO_PACKAGE_NAME);
-		replaceInterfaceToClass(toPath);
-		
-		
-		FROM_PACKAGE_NAME = TO_PACKAGE_NAME;
-		TO_PACKAGE_NAME = "org.ghcc.toft.ware.vendor.ether.impl.defaults";
-		
-		fromPath = toPath;
-		toPath = "L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/org/ghcc/toft/ware/vendor/ether/impl/defaults";
-		prefix = "Default";
-	
-		dealAbstractToDefaultFrame(fromPath, toPath, prefix, FROM_PACKAGE_NAME, TO_PACKAGE_NAME);
-		replaceInterfaceToClassForAbstractToDefault(toPath);
+			public void deal(File file) throws Exception {
+				if (!file.getAbsolutePath().endsWith(".java")) {
+					return;
+				}
+
+				System.out.println("remove more interface " + file);
+				String java = JavaUtil.readFileToString(file);
+				java = java.replaceAll(",.+\\{", " {");
+				JavaUtil.writeFile(java, file);
+			}
+		});
 	}
 	
 	public static void replaceInterfaceToClass(final String FILE_PATH) throws Exception {

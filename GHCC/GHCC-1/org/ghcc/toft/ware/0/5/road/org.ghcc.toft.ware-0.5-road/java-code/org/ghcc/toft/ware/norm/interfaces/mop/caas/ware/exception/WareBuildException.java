@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.BuildException;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
 
 
 /**
@@ -19,7 +18,7 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Ware;
  */
 
 
-public class WareBuildException extends BuildException implements Ware, WareCOPException {
+public class WareBuildException extends BuildException implements WareCOPException {
 
 	/**
 	 * 

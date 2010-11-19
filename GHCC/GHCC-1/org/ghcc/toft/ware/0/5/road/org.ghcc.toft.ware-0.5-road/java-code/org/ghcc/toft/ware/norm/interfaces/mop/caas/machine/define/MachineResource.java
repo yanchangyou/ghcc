@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Resource;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public interface MachineResource extends Machine, Resource, MachineCOPDefine {
+public interface MachineResource extends Resource, MachineCOPDefine {
 }

@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.ID;
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
 
 
 /**
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.concept.caas.Machine;
  */
 
 
-public interface MachineID extends Machine, ID, MachineCOPDefine {
+public interface MachineID extends ID, MachineCOPDefine {
 }

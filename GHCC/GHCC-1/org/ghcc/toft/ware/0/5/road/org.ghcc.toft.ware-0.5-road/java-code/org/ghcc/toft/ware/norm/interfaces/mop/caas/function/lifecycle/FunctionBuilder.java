@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.lifecycle;
 
-import org.ghcc.toft.ware.norm.interfaces.concept.caas.Function;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Builder;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionResource;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionBuildException;
@@ -21,7 +20,7 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionBu
  */
 
 
-public interface FunctionBuilder extends Function, Builder, FunctionCOPLifeCycle {
+public interface FunctionBuilder extends Builder, FunctionCOPLifeCycle {
 
 	public void build(FunctionResource resource) throws FunctionBuildException;
 
