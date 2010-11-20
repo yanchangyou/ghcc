@@ -25,24 +25,45 @@ public class WareUtil {
 	 * @return
 	 */
 	public static String getWareJavaClassesPath(Namespace namespace) {
-		String javaClassesPath = getWareProjectPath(namespace) + "/product/java-classes/";
+		return getWareJavaClassesPath(namespace.getURI());
+	}
+	public static String getWareJavaClassesPath(String wareURL) {
+		String javaClassesPath = getWareProjectPath(wareURL) + "/product/java-classes/";
 		return javaClassesPath;
 	}
 	
-	public static String getWareJavaLibPath(Namespace namespace) {
-		String javaLibPath = getWareProjectPath(namespace) + "/product/java-lib/";
-		javaLibPath += getWareID(namespace) + ".jar";
+	/**
+	 * @param wareURL
+	 * @return
+	 */
+	public static String getWareID(String wareURL) {
+		String wareID = null;
+		wareID = wareURL.substring(wareURL.lastIndexOf('/')+1);
+		return wareID;
+	}
+	
+
+	public static String getWareJavaLibPath(String wareURL) {
+		String javaLibPath = getWareProjectPath(wareURL) + "/product/java-lib/";
+		javaLibPath += getWareID(wareURL) + ".jar";
 		return javaLibPath;
 	}
 	
-	public static String getWareProjectPath(Namespace namespace) {
+	public static String getWareJavaLibPath(Namespace namespace) {
+		return getWareJavaLibPath(namespace.getURI());
+	}
+
+	public static String getWareProjectPath(String wareURL) {
 		String wareProjectPath = null;
-		String uri = namespace.getURI();
-		String wareID = getWareID(namespace);
-		wareProjectPath = uri.substring(0, uri.lastIndexOf('/')+1); 
+		String wareID = getWareID(wareURL);
+		wareProjectPath = wareURL.substring(0, wareURL.lastIndexOf('/')+1); 
 		wareProjectPath += wareID.replace('.', '/').replace('-', '/');
 		wareProjectPath += "/" + wareID;
 		return wareProjectPath;
+	}
+	
+	public static String getWareProjectPath(Namespace namespace) {
+		return getWareProjectPath(namespace.getURI());
 	}
 	
 	public static String getWareID(Namespace namespace) {
@@ -51,17 +72,25 @@ public class WareUtil {
 		wareID = uri.substring(uri.lastIndexOf('/')+1);
 		return wareID;
 	}
-	
+
+	/**
+	 * 获取包名
+	 * @param namespace
+	 * @return
+	 */
+	public static String getWarePackageName(String wareURL) {
+		String packageName = null;
+		String wareID = getWareID(wareURL);
+		packageName = wareID.substring(0, wareID.indexOf('-'));
+		return packageName;
+	}
 	/**
 	 * 获取包名
 	 * @param namespace
 	 * @return
 	 */
 	public static String getWarePackageName(Namespace namespace) {
-		String packageName = null;
-		String wareID = getWareID(namespace);
-		packageName = wareID.substring(0, wareID.indexOf('-'));
-		return packageName;
+		return getWarePackageName(namespace.getURI());
 	}
 	
 	/**
