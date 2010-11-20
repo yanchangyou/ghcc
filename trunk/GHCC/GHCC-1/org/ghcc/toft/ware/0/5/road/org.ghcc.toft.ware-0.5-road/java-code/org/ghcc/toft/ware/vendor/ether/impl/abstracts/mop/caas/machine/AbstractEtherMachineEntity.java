@@ -45,11 +45,11 @@ import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.ware.lifecycle.Def
 
 public abstract class AbstractEtherMachineEntity implements EtherMachineEntity {
 	protected Document document = null;
-	protected static Map<EtherWareID, EtherWareEntity> wareEntityBufferMap;
+	protected static Map<String, EtherWareEntity> wareEntityBufferMap;
 
 	public AbstractEtherMachineEntity(Document document) {
 		setDocument(document);
-		wareEntityBufferMap = new HashMap<EtherWareID, EtherWareEntity>();
+		wareEntityBufferMap = new HashMap<String, EtherWareEntity>();
 	}
 	
 	public Document getDocument() {
@@ -111,7 +111,7 @@ public abstract class AbstractEtherMachineEntity implements EtherMachineEntity {
 	 * @param wareEntity
 	 */
 	public void installWare(EtherWareEntity wareEntity) {
-		wareEntityBufferMap.put(wareEntity.getWareID(), wareEntity);
+		wareEntityBufferMap.put(wareEntity.getWareID().getID(), wareEntity);
 	}
 	
 	public EtherWareEntity installWare(Namespace wareNamespace) throws MalformedURLException, WareLoadException, COPException {
@@ -127,6 +127,6 @@ public abstract class AbstractEtherMachineEntity implements EtherMachineEntity {
 	 * @return
 	 */
 	public EtherWareEntity getWare(EtherWareID wareID) {
-		return wareEntityBufferMap.get(wareID);
+		return wareEntityBufferMap.get(wareID.getID());
 	}
 }
