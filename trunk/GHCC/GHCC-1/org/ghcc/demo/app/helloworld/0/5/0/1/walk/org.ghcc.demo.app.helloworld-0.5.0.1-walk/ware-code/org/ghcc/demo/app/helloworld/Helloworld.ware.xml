@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<machine xmlns:hello="http://127.0.0.1:9999/GHCC-1/org.ghcc.demo.ware.helloworld-0.5.0.1-run">
+<machine xmlns:hello="https://ghcc.googlecode.com/svn/trunk/GHCC/GHCC-1/org.ghcc.demo.ware.helloworld-0.5.0.1-run">
 	<hello:speak>Hello, World!</hello:speak>
 </machine>
