@@ -4,6 +4,8 @@
 
 package org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.lifecycle;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
 
@@ -15,6 +17,7 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachinePathInfo;
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.lifecycle.AbstractEtherMachineLoader;
 import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.DefaultEtherMachineEntity;
+import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachineID;
 
 /**
  * DefaultEtherMachineLoader
@@ -33,11 +36,22 @@ public class DefaultEtherMachineLoader extends AbstractEtherMachineLoader {
 	
 	public DefaultEtherMachineLoader(EtherMachinePathInfo pathInfo) {
 		this.pathInfo = pathInfo;
-		loader = new URLClassLoader(new URL[]{pathInfo.getPathURL()});
+		URL[] urls = pathInfo.getPathURLs();
+		urls = urls == null ? new URL[0] : urls;
+		loader = new URLClassLoader(urls);
 	}
 	
 	/**
-	 * @param pathInfo
+	 * 
+	 * @param id
+	 * @return
+	 * @throws MachineLoadException
+	 */
+	public EtherMachineEntity load(String id) throws MachineLoadException {
+		return load(new DefaultEtherMachineID(id));
+	}
+	
+	/**
 	 * @param id
 	 * @return
 	 * @throws MachineLoadException
@@ -46,12 +60,20 @@ public class DefaultEtherMachineLoader extends AbstractEtherMachineLoader {
 
 		Document document = null;
 		try {
-			document = new SAXReader().read(loader.getResourceAsStream(id.getFileName()));;
+			InputStream input = loader.getResourceAsStream(id.getFileName());
+			if (input == null) {
+				try {
+					input = new FileInputStream(id.getFileName());
+				} catch (Exception e) {
+					input = new URL(id.getFileName()).openStream();
+				}
+			}
+			document = new SAXReader().read(input);
 		} catch (Exception e) {
 			throw new MachineLoadException(e);
 		}
-		DefaultEtherMachineEntity wareDocumentEntity = new DefaultEtherMachineEntity(document);
+		DefaultEtherMachineEntity machineEntity = new DefaultEtherMachineEntity(document);
 
-		return wareDocumentEntity;
+		return machineEntity;
 	}
 }

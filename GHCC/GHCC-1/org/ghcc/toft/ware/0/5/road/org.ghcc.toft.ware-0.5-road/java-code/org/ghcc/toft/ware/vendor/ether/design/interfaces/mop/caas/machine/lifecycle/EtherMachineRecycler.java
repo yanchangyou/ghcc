@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineRecycleException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle.MachineRecycler;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.lifecycle.EtherRecycler;
@@ -23,6 +24,6 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.EtherM
 
 public interface EtherMachineRecycler extends MachineRecycler, EtherRecycler, EtherMachineCOPLifeCycle {
 
-	public void recycly(EtherMachineEntity entity) throws MachineRecycleException;
+	public void recycly(EtherMachineEntity entity) throws MachineRecycleException, COPException;
 
 }

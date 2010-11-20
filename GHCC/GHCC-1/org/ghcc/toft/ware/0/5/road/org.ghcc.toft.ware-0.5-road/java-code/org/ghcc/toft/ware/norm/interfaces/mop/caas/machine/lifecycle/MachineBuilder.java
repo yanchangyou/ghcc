@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Builder;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define.MachineResource;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineBuildException;
@@ -22,6 +23,6 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineBuil
 
 public interface MachineBuilder extends Builder, MachineCOPLifeCycle {
 
-	public void build(MachineResource resource) throws MachineBuildException;
+	public void build(MachineResource resource) throws MachineBuildException, COPException;
 
 }

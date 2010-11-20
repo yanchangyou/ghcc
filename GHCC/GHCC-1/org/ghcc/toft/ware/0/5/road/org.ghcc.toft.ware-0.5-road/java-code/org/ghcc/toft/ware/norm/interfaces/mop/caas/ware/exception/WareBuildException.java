@@ -20,8 +20,12 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.BuildException;
 
 public class WareBuildException extends BuildException implements WareCOPException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4227664647595175509L;
+	private static final long serialVersionUID = 4758635159557818644L;
+	
+	public WareBuildException() {
+		super();
+	}
+	public WareBuildException(Exception javaException) {
+		super(javaException);
+	}
 }

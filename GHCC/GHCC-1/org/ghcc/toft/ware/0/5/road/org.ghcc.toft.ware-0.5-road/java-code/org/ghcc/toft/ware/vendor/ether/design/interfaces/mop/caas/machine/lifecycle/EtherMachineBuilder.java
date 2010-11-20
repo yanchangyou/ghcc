@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineBuildException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle.MachineBuilder;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.lifecycle.EtherBuilder;
@@ -23,6 +24,6 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define
 
 public interface EtherMachineBuilder extends MachineBuilder, EtherBuilder, EtherMachineCOPLifeCycle {
 
-	public void build(EtherMachineResource resource) throws MachineBuildException;
+	public void build(EtherMachineResource resource) throws MachineBuildException, COPException;
 
 }

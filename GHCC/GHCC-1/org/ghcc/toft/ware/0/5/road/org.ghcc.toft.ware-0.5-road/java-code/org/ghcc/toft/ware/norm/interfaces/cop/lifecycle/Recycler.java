@@ -5,6 +5,7 @@
 package org.ghcc.toft.ware.norm.interfaces.cop.lifecycle;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.Entity;
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.RecycleException;
 
 
@@ -22,6 +23,6 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.RecycleException;
 
 public interface Recycler extends COPLifeCycle {
 	
-	public void recycly(Entity entity) throws RecycleException;
+	public void recycly(Entity entity) throws RecycleException, COPException;
 	
 }

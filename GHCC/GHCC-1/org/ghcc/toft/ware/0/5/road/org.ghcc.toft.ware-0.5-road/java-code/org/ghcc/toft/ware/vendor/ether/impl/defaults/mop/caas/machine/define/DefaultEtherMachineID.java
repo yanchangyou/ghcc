@@ -31,6 +31,10 @@ public class DefaultEtherMachineID extends AbstractEtherMachineID {
 	 * @return
 	 */
 	public String getFileName() {
-		return this.getID().replace('.', '/') + ".ware.xml";
+		String fileID = getID();
+		if (fileID.endsWith(".ware.xml")) {
+			return fileID;
+		}
+		return fileID.replace('.', '/') + ".ware.xml";
 	}
 }

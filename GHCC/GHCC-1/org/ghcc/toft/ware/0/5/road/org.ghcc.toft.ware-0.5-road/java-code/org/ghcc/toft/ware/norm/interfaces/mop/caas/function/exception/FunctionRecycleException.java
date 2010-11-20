@@ -20,8 +20,12 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.RecycleException;
 
 public class FunctionRecycleException extends RecycleException implements FunctionCOPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7399807905459346418L;
+	
+	public FunctionRecycleException() {
+		super();
+	}
+	public FunctionRecycleException(Exception javaException) {
+		super(javaException);
+	}
 }

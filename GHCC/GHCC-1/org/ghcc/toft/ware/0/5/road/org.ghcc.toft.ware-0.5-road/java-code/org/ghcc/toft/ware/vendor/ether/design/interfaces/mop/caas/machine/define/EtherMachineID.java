@@ -20,5 +20,7 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.define.EtherID;
 
 
 public interface EtherMachineID extends MachineID, EtherID, EtherMachineCOPDefine {
+	
 	public String getFileName();
+	
 }

@@ -5,7 +5,6 @@
 package org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.define;
 
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineID;
-import org.ghcc.toft.ware.vendor.ether.impl.abstracts.cop.define.AbstractEtherID;
 
 
 /**
@@ -19,13 +18,26 @@ import org.ghcc.toft.ware.vendor.ether.impl.abstracts.cop.define.AbstractEtherID
  */
 
 
-public abstract class AbstractEtherMachineID extends AbstractEtherID implements EtherMachineID {
+public abstract class AbstractEtherMachineID implements EtherMachineID {
 
 	/**
 	 * @param id
 	 */
 	public AbstractEtherMachineID(String id) {
-		super(id);
+		setId(id);
+	}
+	protected String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getID() {
+		return getId();
 	}
 	
 }

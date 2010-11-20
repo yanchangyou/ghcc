@@ -20,15 +20,12 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
 
 public class FunctionLoadException extends LoadException implements FunctionCOPException {
 
-	/**
-	 * @param e
-	 */
-	public FunctionLoadException(Exception e) {
-		this.javaException = e;
-	}
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6769592474813470005L;
+	
+	public FunctionLoadException() {
+		super();
+	}
+	public FunctionLoadException(Exception javaException) {
+		super(javaException);
+	}
 }

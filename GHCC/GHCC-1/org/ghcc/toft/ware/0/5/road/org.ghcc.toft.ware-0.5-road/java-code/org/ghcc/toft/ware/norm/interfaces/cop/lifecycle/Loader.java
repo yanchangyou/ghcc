@@ -6,6 +6,7 @@ package org.ghcc.toft.ware.norm.interfaces.cop.lifecycle;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.Entity;
 import org.ghcc.toft.ware.norm.interfaces.cop.define.ID;
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
 
 
@@ -23,6 +24,6 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
 
 public interface Loader extends COPLifeCycle {
 
-	public Entity load(ID id) throws LoadException;
+	public Entity load(ID id) throws LoadException, COPException;
 
 }
