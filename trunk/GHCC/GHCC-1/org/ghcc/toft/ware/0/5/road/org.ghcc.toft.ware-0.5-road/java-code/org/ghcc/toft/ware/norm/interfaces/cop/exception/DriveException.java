@@ -17,26 +17,14 @@ package org.ghcc.toft.ware.norm.interfaces.cop.exception;
  */
 
 
-public class DriveException extends Exception implements COPException {
+public class DriveException extends COPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8700814991757758068L;
-	
-	protected Exception javaException;
 	
 	public DriveException() {
 		super();
 	}
 	public DriveException(Exception javaException) {
-		setJavaException(javaException);
-	}
-	protected void setJavaException(Exception javaException) {
-		this.javaException = javaException;
-	}
-
-	public Exception getJavaException() {
-		return javaException;
+		super(javaException);
 	}
 }

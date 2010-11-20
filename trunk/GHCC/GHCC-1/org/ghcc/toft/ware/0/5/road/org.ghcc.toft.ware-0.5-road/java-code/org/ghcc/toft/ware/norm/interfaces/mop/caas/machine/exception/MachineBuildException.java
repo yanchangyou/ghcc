@@ -19,9 +19,12 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.BuildException;
 
 
 public class MachineBuildException extends BuildException implements MachineCOPException {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1456915347858470023L;
+	
+	public MachineBuildException() {
+		super();
+	}
+	public MachineBuildException(Exception javaException) {
+		super(javaException);
+	}
 }

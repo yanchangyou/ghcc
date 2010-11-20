@@ -17,26 +17,14 @@ package org.ghcc.toft.ware.norm.interfaces.cop.exception;
  */
 
 
-public class RecycleException extends Exception implements COPException {
+public class RecycleException extends COPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4473781849900244454L;
-	
-	protected Exception javaException;
 	
 	public RecycleException() {
 		super();
 	}
 	public RecycleException(Exception javaException) {
-		setJavaException(javaException);
-	}
-	protected void setJavaException(Exception javaException) {
-		this.javaException = javaException;
-	}
-
-	public Exception getJavaException() {
-		return javaException;
+		super(javaException);
 	}
 }
