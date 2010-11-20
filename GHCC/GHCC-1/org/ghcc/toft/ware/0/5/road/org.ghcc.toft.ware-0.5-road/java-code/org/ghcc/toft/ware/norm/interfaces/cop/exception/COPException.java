@@ -19,8 +19,23 @@ import org.ghcc.toft.ware.norm.interfaces.cop.COP;
  */
 
 
-public interface COPException extends COP {
+public class COPException extends Exception implements COP {
+
+	private static final long serialVersionUID = -7664477931160534141L;
 	
-	public Exception getJavaException();
+	protected Exception javaException;
 	
+	public COPException() {
+		super();
+	}
+	public COPException(Exception javaException) {
+		setJavaException(javaException);
+	}
+	protected void setJavaException(Exception javaException) {
+		this.javaException = javaException;
+	}
+
+	public Exception getJavaException() {
+		return javaException;
+	}
 }

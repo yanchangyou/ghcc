@@ -17,23 +17,14 @@ package org.ghcc.toft.ware.norm.interfaces.cop.exception;
  */
 
 
-public class BuildException extends Exception implements COPException {
+public class BuildException extends COPException {
 
 	private static final long serialVersionUID = -7312994796536818974L;
 
-	protected Exception javaException;
-	
 	public BuildException() {
 		super();
 	}
 	public BuildException(Exception javaException) {
-		setJavaException(javaException);
-	}
-	protected void setJavaException(Exception javaException) {
-		this.javaException = javaException;
-	}
-
-	public Exception getJavaException() {
-		return javaException;
+		super(javaException);
 	}
 }

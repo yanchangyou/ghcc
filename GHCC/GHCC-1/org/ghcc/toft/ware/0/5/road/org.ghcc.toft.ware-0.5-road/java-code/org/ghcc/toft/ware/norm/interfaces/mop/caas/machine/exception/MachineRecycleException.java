@@ -20,8 +20,13 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.RecycleException;
 
 public class MachineRecycleException extends RecycleException implements MachineCOPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1786825084122116070L;
+
+	public MachineRecycleException() {
+		super();
+	}
+
+	public MachineRecycleException(Exception javaException) {
+		super(javaException);
+	}
 }

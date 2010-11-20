@@ -20,8 +20,12 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
 
 public class MachineLoadException extends LoadException implements MachineCOPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1183534663880395775L;
+	
+	public MachineLoadException() {
+		super();
+	}
+	public MachineLoadException(Exception javaException) {
+		super(javaException);
+	}
 }
