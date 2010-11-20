@@ -4,10 +4,10 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Loader;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.WareEntity;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define.WareID;
-import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define.WarePathInfo;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception.WareLoadException;
 
 
@@ -24,8 +24,6 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.exception.WareLoadExcept
 
 public interface WareLoader extends Loader, WareCOPLifeCycle {
 
-	public WareEntity load(WareID id) throws WareLoadException;
-
-	public WareEntity load(WarePathInfo pathInfo, WareID id) throws WareLoadException;
+	public WareEntity load(WareID id) throws WareLoadException, COPException;
 
 }

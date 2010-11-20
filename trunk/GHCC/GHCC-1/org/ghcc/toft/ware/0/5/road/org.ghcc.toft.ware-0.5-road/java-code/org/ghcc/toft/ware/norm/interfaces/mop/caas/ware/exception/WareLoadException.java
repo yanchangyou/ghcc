@@ -20,15 +20,12 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
 
 public class WareLoadException extends LoadException implements WareCOPException {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4476768262925050136L;
 	
-	public WareLoadException(Exception e)  {
-		this.javaException = e;
+	public WareLoadException() {
+		super();
 	}
-	public WareLoadException()  {
+	public WareLoadException(Exception javaException) {
+		super(javaException);
 	}
-	
 }

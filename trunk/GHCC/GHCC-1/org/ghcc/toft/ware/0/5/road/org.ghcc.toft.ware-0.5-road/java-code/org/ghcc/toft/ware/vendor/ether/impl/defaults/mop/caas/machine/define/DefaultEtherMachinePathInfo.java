@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.define.AbstractEtherMachinePathInfo;
@@ -23,9 +24,18 @@ import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.define.Ab
 public class DefaultEtherMachinePathInfo extends AbstractEtherMachinePathInfo {
 
 	/**
-	 * @param pathURL
+	 * @param wareMachineURL
+	 * @throws MalformedURLException 
 	 */
-	public DefaultEtherMachinePathInfo(URL pathURL) {
-		super(pathURL);
+	public DefaultEtherMachinePathInfo(String wareMachineURL) throws MalformedURLException {
+		if (wareMachineURL == null) {
+			return;
+		}
+		String[] urlPaths = wareMachineURL.split(";");
+		urls = new URL[urlPaths.length];
+		for (int i = 0; i < urlPaths.length; i++) {
+			urlPaths[i] = urlPaths[i].matches("^.+(/|\\\\)$") ? urlPaths[i] : urlPaths[i] + "/";
+			urls[i] = new URL(urlPaths[i]);
+		}
 	}
 }

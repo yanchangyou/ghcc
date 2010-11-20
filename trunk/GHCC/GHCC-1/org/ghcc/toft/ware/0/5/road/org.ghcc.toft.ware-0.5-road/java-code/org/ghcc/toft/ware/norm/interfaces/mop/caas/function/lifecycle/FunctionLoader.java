@@ -4,10 +4,9 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.lifecycle;
 
-import org.ghcc.toft.ware.norm.interfaces.cop.Entity;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Loader;
+import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.FunctionEntity;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionID;
-import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionPathInfo;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionLoadException;
 
 
@@ -24,8 +23,6 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionLo
 
 public interface FunctionLoader extends Loader, FunctionCOPLifeCycle {
 
-	public Entity load(FunctionID id) throws FunctionLoadException;
-
-	public Entity load(FunctionPathInfo pathInfo, FunctionID id) throws FunctionLoadException;
+	public FunctionEntity load(FunctionID id) throws FunctionLoadException;
 
 }

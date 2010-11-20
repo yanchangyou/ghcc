@@ -5,6 +5,7 @@
 package org.ghcc.toft.ware.norm.interfaces.cop.lifecycle;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Context;
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.DriveException;
 
 
@@ -22,6 +23,6 @@ import org.ghcc.toft.ware.norm.interfaces.cop.exception.DriveException;
 
 public interface Driver extends COPLifeCycle {
 	
-	public void drive(Context context) throws DriveException;
+	public void drive(Context context) throws DriveException, COPException;
 	
 }

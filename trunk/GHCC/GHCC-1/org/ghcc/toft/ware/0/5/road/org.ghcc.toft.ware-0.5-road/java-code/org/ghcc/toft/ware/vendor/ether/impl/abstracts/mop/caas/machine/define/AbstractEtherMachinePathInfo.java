@@ -7,7 +7,6 @@ package org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.define;
 import java.net.URL;
 
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachinePathInfo;
-import org.ghcc.toft.ware.vendor.ether.impl.abstracts.cop.define.AbstractEtherPathInfo;
 
 
 /**
@@ -21,12 +20,28 @@ import org.ghcc.toft.ware.vendor.ether.impl.abstracts.cop.define.AbstractEtherPa
  */
 
 
-public class AbstractEtherMachinePathInfo extends AbstractEtherPathInfo implements EtherMachinePathInfo {
+public class AbstractEtherMachinePathInfo implements EtherMachinePathInfo {
+
+	protected URL[] urls;
+	
+	/**
+	 * @return
+	 */
+	public URL[] getPathURLs() {
+		return getUrls();
+	}
 
 	/**
-	 * @param pathURL
+	 * @param urls the urls to set
 	 */
-	public AbstractEtherMachinePathInfo(URL pathURL) {
-		super(pathURL);
+	public void setUrls(URL[] urls) {
+		this.urls = urls;
+	}
+
+	/**
+	 * @return the urls
+	 */
+	public URL[] getUrls() {
+		return urls;
 	}
 }

@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Driver;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define.MachineContext;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineDriveException;
@@ -22,6 +23,6 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineDriv
 
 public interface MachineDriver extends Driver, MachineCOPLifeCycle {
 
-	public void drive(MachineContext context) throws MachineDriveException;
+	public void drive(MachineContext context) throws MachineDriveException, COPException;
 
 }

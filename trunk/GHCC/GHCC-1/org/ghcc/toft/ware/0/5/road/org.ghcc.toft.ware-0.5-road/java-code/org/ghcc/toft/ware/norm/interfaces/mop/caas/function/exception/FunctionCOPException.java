@@ -4,7 +4,6 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception;
 
-import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.FunctionCOP;
 
 
@@ -19,5 +18,5 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.FunctionCOP;
  */
 
 
-public interface FunctionCOPException extends COPException, FunctionCOP {
+public interface FunctionCOPException extends FunctionCOP {
 }

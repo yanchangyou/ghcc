@@ -4,13 +4,10 @@
 
 package org.ghcc.toft.ware.vendor.ether.launch;
 
-import java.net.URL;
-
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.EtherMachineEntity;
-import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineID;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachinePathInfo;
-import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachineID;
+import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachineContext;
 import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachinePathInfo;
 import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.lifecycle.DefaultEtherMachineLoader;
 
@@ -28,21 +25,23 @@ public class EtherLauncher {
 	public static void main(String[] args) throws Exception {
 		EtherLauncher launcher = new EtherLauncher();
 		try {
-			launcher.launch();
+			launcher.launch(args);
 		} catch (COPException e) {
 			e.getJavaException().printStackTrace();
 		}
 	}
 	
-	public void launch() throws COPException, Exception {
-		URL url = new URL("file://L:/ghcc/ghcc/GHCC-1/svn/org/ghcc/toft/ware/0/5/road/org.ghcc.toft.ware-0.5-road/java-code/");
-		EtherMachinePathInfo pathInfo = new DefaultEtherMachinePathInfo(url);
-		DefaultEtherMachineLoader loader = new DefaultEtherMachineLoader(pathInfo);
-		EtherMachineID id = new DefaultEtherMachineID("org.ghcc.toft.ware.vendor.ether.launch.Helloworld");
+	public void launch(String[] args) throws COPException, Exception {
+		
+		String wareMachineURL = System.getProperty(EtherMachinePathInfo.WARE_MACHINE_URL);
+		
+		String id = args[0];
+		
+		DefaultEtherMachineLoader loader = new DefaultEtherMachineLoader(new DefaultEtherMachinePathInfo(wareMachineURL));
+		
 		EtherMachineEntity machine = loader.load(id);
 		
 		machine.build(null);
-		machine.drive(null);
-		
+		machine.drive(new DefaultEtherMachineContext());
 	}
 }

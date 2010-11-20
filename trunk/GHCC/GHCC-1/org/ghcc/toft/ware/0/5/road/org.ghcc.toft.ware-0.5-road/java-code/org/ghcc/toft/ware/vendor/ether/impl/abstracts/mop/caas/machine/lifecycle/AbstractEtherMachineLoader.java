@@ -6,10 +6,10 @@ package org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.lifecycl
 
 import org.ghcc.toft.ware.norm.interfaces.cop.Entity;
 import org.ghcc.toft.ware.norm.interfaces.cop.define.ID;
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.LoadException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.MachineEntity;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define.MachineID;
-import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineLoadException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineID;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.lifecycle.EtherMachineLoader;
 
@@ -32,9 +32,9 @@ public abstract class AbstractEtherMachineLoader implements EtherMachineLoader {
 	 * 
 	 * @param id
 	 * @return
-	 * @throws MachineLoadException
+	 * @throws COPException 
 	 */
-	public MachineEntity load(MachineID id) throws MachineLoadException {
+	public MachineEntity load(MachineID id) throws LoadException, COPException {
 		return load((EtherMachineID)id);
 	}
 
@@ -45,7 +45,7 @@ public abstract class AbstractEtherMachineLoader implements EtherMachineLoader {
 	 * @return
 	 * @throws LoadException
 	 */
-	public Entity load(ID id) throws LoadException {
+	public Entity load(ID id) throws LoadException, COPException {
 		return load((MachineID)id);
 	}
 }
