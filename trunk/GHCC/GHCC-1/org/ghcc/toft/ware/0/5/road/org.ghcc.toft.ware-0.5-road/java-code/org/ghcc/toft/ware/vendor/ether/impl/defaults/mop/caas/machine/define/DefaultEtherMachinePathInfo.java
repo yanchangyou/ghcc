@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.define.AbstractEtherMachinePathInfo;
+import org.ghcc.toft.ware.vendor.ether.util.entity.WareUtil;
 
 
 /**
@@ -32,10 +33,11 @@ public class DefaultEtherMachinePathInfo extends AbstractEtherMachinePathInfo {
 			return;
 		}
 		String[] urlPaths = wareMachineURL.split(";");
-		urls = new URL[urlPaths.length];
+		urls = new URL[urlPaths.length * 2];
 		for (int i = 0; i < urlPaths.length; i++) {
+			urls[2 * i] = new URL(WareUtil.getWareProjectPath(urlPaths[i]) + "/ware-code/");
 			urlPaths[i] = urlPaths[i].matches("^.+(/|\\\\)$") ? urlPaths[i] : urlPaths[i] + "/";
-			urls[i] = new URL(urlPaths[i]);
+			urls[2 * i + 1] = new URL(urlPaths[i]);
 		}
 	}
 }
