@@ -22,10 +22,15 @@ import org.ghcc.toft.ware.vendor.ether.util.entity.WareUtil;
 
 public class AbstractEtherWareID implements EtherWareID {
 	
+	protected String id;
+	
 	protected Namespace namespace;
 	
 	public AbstractEtherWareID(Namespace namespace) {
 		this.namespace = namespace;
+		if (!WareUtil.checkWareID(namespace)) {
+			throw new RuntimeException("ware id is invalid, id shoud match" + WareUtil.WARE_ID_PATTERN);
+		}
 	}
 
 	/**

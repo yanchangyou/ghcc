@@ -17,6 +17,27 @@ import org.dom4j.Namespace;
 
 public class WareUtil {
 
+	public static String IDENTIFER_PATTERN = "[a-zA-Z][a-zA-Z0-9]*";
+	public static String SMALL_PACKAGE_PATTERN = IDENTIFER_PATTERN + "(\\." + IDENTIFER_PATTERN + ")*" ;
+	public static String VERSION_PATTERN = "\\d+(\\.\\d+)*";
+
+	/**
+	 * wareID 判断的正则表达式
+	 */
+	public static String WARE_ID_PATTERN = "^" +
+			SMALL_PACKAGE_PATTERN + "(-" + SMALL_PACKAGE_PATTERN + ")*" +  //package
+			"(-" + VERSION_PATTERN + ")+" + //version
+			"(-" + IDENTIFER_PATTERN + ")" + //code
+			"$";
+	public static boolean checkWareID(String wareID) {
+		return wareID.matches(WARE_ID_PATTERN);
+	}
+	
+	public static boolean checkWareID(Namespace namespace) {
+		return checkWareID(getWareID(namespace));
+	}
+	
+	
 	/**
 	 * 根据命名空间获取对于ware class path<br>
 	 * 如 : https://ghcc.googlecode.com/svn/trunk/GHCC/GHCC-1/org.ghcc.demo.ware.helloworld-0.5-hellokitty
