@@ -4,7 +4,10 @@
 
 package org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.define;
 
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.EtherMachineEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineResource;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.lifecycle.EtherMachineLoader;
 
 
 /**
@@ -19,4 +22,35 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define
 
 
 public class AbstractEtherMachineResource implements EtherMachineResource {
+
+	protected EtherMachineEntity machineEntity;
+	protected EtherMachineLoader machineLoader;
+	protected EtherMachineContext machineContext;
+	
+	public AbstractEtherMachineResource(EtherMachineEntity machineEntity,EtherMachineLoader machineLoader,
+			EtherMachineContext machineContext) {
+		this.machineEntity = machineEntity;
+		this.machineLoader = machineLoader;
+		this.machineContext = machineContext;
+	}
+	/**
+	 * @return
+	 */
+	public EtherMachineEntity getEntity() {
+		return machineEntity;
+	}
+
+	/**
+	 * @return
+	 */
+	public EtherMachineLoader getLoader() {
+		return machineLoader;
+	}
+
+	/**
+	 * @return
+	 */
+	public EtherMachineContext getContext() {
+		return machineContext;
+	}
 }

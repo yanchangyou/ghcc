@@ -7,7 +7,6 @@ package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define;
 import org.dom4j.Namespace;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define.WarePathInfo;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.define.EtherPathInfo;
-import org.ghcc.toft.ware.vendor.ether.util.loader.ActiveClassLoader;
 
 
 /**
@@ -22,13 +21,7 @@ import org.ghcc.toft.ware.vendor.ether.util.loader.ActiveClassLoader;
 
 
 public interface EtherWarePathInfo extends WarePathInfo, EtherPathInfo, EtherWareCOPDefine {
-	
-	/**
-	 * 根据路径信息生成class loader
-	 * @return
-	 */
-	public ActiveClassLoader getWareClassLoader();
-	
+
 	/**
 	 * 获取节点的命名空间
 	 * @return

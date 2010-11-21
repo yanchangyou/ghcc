@@ -113,7 +113,6 @@ public abstract class AbstractEtherWareEntity implements EtherWareEntity {
 		for (URL url : configClassPath()) { //添加后续需要的第三方类
 			getWareLoader().getWareClassLoader().addURL(url);
 		}
-		executeFunction(context, this.resource.getFunctionElement());
 	}
 
 	/**

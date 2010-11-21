@@ -5,6 +5,9 @@
 package org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.function.define;
 
 import org.dom4j.Element;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.EtherFunctionEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.lifecycle.EtherFunctionLoader;
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.function.define.AbstractEtherFunctionResource;
 
 /**
@@ -21,8 +24,14 @@ public class DefaultEtherFunctionResource extends AbstractEtherFunctionResource 
 
 	/**
 	 * @param functionElement
+	 * @param functionEntity
+	 * @param functionLoader
+	 * @param functionContext
 	 */
-	public DefaultEtherFunctionResource(Element functionElement) {
-		super(functionElement);
+	public DefaultEtherFunctionResource(Element functionElement,
+			EtherFunctionEntity functionEntity,
+			EtherFunctionLoader functionLoader,
+			EtherFunctionContext functionContext) {
+		super(functionElement, functionEntity, functionLoader, functionContext);
 	}
 }

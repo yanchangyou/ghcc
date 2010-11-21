@@ -4,15 +4,19 @@
 
 package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define;
 
+import org.dom4j.Element;
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionContext;
+import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionLoadException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.define.EtherContext;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.EtherFunctionEntity;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareContext;
 
 
 /**
  * EtherFunctionContext
  * 
- * @author code machine
+ * @author code Function
  * @author yanchangyou
  * @date 2010-11-20 00:17:21
  * @version 0.5
@@ -22,6 +26,18 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.Et
 
 public interface EtherFunctionContext extends FunctionContext, EtherContext, EtherFunctionCOPDefine {
 	
-	public void setWareContext(EtherWareContext wareContext);
-
+	/**
+	 * 获取此功能所在的ware上下文
+	 * @return
+	 */
+	public EtherWareContext getWareContext();
+	
+	/**
+	 * 加载功能
+	 * @return
+	 * @throws FunctionLoadException 
+	 */
+	public EtherFunctionEntity loadFunctionEntity(Element functionElement) throws FunctionLoadException, COPException;
+	
 }
+

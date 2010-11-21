@@ -6,6 +6,8 @@ package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.defin
 
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define.MachineResource;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.define.EtherResource;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.EtherMachineEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.lifecycle.EtherMachineLoader;
 
 
 /**
@@ -20,4 +22,24 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.define.EtherResourc
 
 
 public interface EtherMachineResource extends MachineResource, EtherResource, EtherMachineCOPDefine {
+	
+	/**
+	 * 获取资源中的实体
+	 * @return
+	 */
+	public EtherMachineEntity getEntity();
+	
+	/**
+	 * 获取实体的加载器
+	 * @return
+	 */
+	public EtherMachineLoader getLoader();
+	
+	/**
+	 * 获取实体上下文
+	 * @return
+	 */
+	public EtherMachineContext getContext();
+
+
 }
