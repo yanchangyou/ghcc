@@ -25,5 +25,12 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.lifec
 public interface EtherFunctionEntity extends FunctionEntity, EtherEntity, EtherFunctionCOP, EtherFunctionConcept, EtherFunctionBuilder, EtherFunctionDriver {
 	
 	public Element getFunctionElement();
+
+	/**
+	 * 为实体设置属性
+	 * @param element
+	 * @throws Exception 
+	 */
+	public void setFunctionProperties() throws Exception;
 	
 }
