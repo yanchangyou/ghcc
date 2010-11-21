@@ -4,21 +4,17 @@
 
 package org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine;
 
-import java.net.MalformedURLException;
-
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineBuildException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.exception.MachineDriveException;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.EtherFunctionEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineResource;
-import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.EtherWareEntity;
-import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareID;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareContext;
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.machine.AbstractEtherMachineEntity;
-import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.ware.define.DefaultEtherWareContext;
-import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.ware.define.DefaultEtherWareID;
-import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.ware.define.DefaultEtherWareResource;
 
 
 /**
@@ -60,18 +56,10 @@ public class DefaultEtherMachineEntity extends AbstractEtherMachineEntity {
 	public void drive(EtherMachineContext context) throws MachineDriveException, COPException {
 		
 		for (Element functionElement : document.getRootElement().elements()) {
-			EtherWareID wareID = new DefaultEtherWareID(functionElement.getNamespace());
-			EtherWareEntity wareEntity = this.getWare(wareID);
-			if (wareEntity == null) {
-				try {
-					wareEntity = installWare(functionElement.getNamespace());
-				} catch (MalformedURLException e) {
-					throw new MachineDriveException(e);
-				}
-			}
-			wareEntity.build(new DefaultEtherWareResource(functionElement));
-			wareEntity.drive(new DefaultEtherWareContext(context));
+			EtherWareContext wareContext = context.getWareContext(functionElement.getNamespace());
+			EtherFunctionContext functionContext = wareContext.getFunctionContext(functionElement);
+			EtherFunctionEntity functionEntity = functionContext.loadFunctionEntity(functionElement);
+			functionEntity.drive(functionContext);
 		}
 	}
-
 }

@@ -117,7 +117,10 @@ public abstract class AbstractEtherMachineEntity implements EtherMachineEntity {
 	public EtherWareEntity installWare(Namespace wareNamespace) throws MalformedURLException, WareLoadException, COPException {
 		EtherWareLoader wareLoader = null;
 		wareLoader = new DefaultEtherWareLoader(new DefaultEtherWarePathInfo(wareNamespace));
-		EtherWareEntity wareEntity = wareLoader.load(new DefaultEtherWareID(wareNamespace));
+		EtherWareID wareID = new DefaultEtherWareID(wareNamespace);
+		EtherWareEntity wareEntity = wareLoader.load(wareID);
+		wareEntity.setWareLoader(wareLoader);
+		wareEntity.setWareID(wareID);
 		installWare(wareEntity);
 		return wareEntity;
 	}

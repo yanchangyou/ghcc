@@ -4,8 +4,11 @@
 
 package org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.ware.define;
 
-import org.dom4j.Element;
+import org.dom4j.Namespace;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.EtherWareEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareResource;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.lifecycle.EtherWareLoader;
 
 
 /**
@@ -21,23 +24,46 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.Et
 
 public class AbstractEtherWareResource implements EtherWareResource {
 	
-	private Element functionElement;
+	protected Namespace wareNamespace;
+	protected EtherWareEntity wareEntity;
+	protected EtherWareLoader wareLoader;
+	protected EtherWareContext wareContext;
 
-	public AbstractEtherWareResource(Element functionElement) {
-		setFunctionElement(functionElement);
-	}
-	/**
-	 * @param functionElement the functionElement to set
-	 */
-	public void setFunctionElement(Element functionElement) {
-		this.functionElement = functionElement;
+	public AbstractEtherWareResource(Namespace wareNamespace,
+			EtherWareEntity wareEntity,
+			EtherWareLoader wareLoader,
+			EtherWareContext wareContext) {
+		
+		this.wareNamespace = wareNamespace;
+		this.wareEntity = wareEntity;
+		this.wareLoader = wareLoader;
+		this.wareContext = wareContext;
+		
 	}
 
 	/**
 	 * @return the functionElement
 	 */
-	public Element getFunctionElement() {
-		return functionElement;
+	public Namespace getWareNamespace() {
+		return wareNamespace;
+	}
+	/**
+	 * @return
+	 */
+	public EtherWareEntity getEntity() {
+		return wareEntity;
+	}
+	/**
+	 * @return
+	 */
+	public EtherWareLoader getLoader() {
+		return wareLoader;
+	}
+	/**
+	 * @return
+	 */
+	public EtherWareContext getContext() {
+		return wareContext;
 	}
 	
 }

@@ -7,6 +7,8 @@ package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.defi
 import org.dom4j.Element;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionResource;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.define.EtherResource;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.EtherFunctionEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.lifecycle.EtherFunctionLoader;
 
 
 /**
@@ -28,4 +30,22 @@ public interface EtherFunctionResource extends FunctionResource, EtherResource, 
 	 */
 	public Element getFunctionElement();
 	
+	/**
+	 * 获取资源中的实体
+	 * @return
+	 */
+	public EtherFunctionEntity getEntity();
+	
+	/**
+	 * 获取实体的加载器
+	 * @return
+	 */
+	public EtherFunctionLoader getLoader();
+	
+	/**
+	 * 获取实体上下文
+	 * @return
+	 */
+	public EtherFunctionContext getContext();
+
 }

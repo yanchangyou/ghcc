@@ -6,9 +6,11 @@ package org.ghcc.toft.ware.vendor.ether.launch;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.EtherMachineEntity;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachineContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.machine.define.EtherMachinePathInfo;
 import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachineContext;
 import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachinePathInfo;
+import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.define.DefaultEtherMachineResource;
 import org.ghcc.toft.ware.vendor.ether.impl.defaults.mop.caas.machine.lifecycle.DefaultEtherMachineLoader;
 
 /**
@@ -40,8 +42,8 @@ public class EtherLauncher {
 		DefaultEtherMachineLoader loader = new DefaultEtherMachineLoader(new DefaultEtherMachinePathInfo(wareMachineURL));
 		
 		EtherMachineEntity machine = loader.load(id);
-		
-		machine.build(null);
-		machine.drive(new DefaultEtherMachineContext());
+		EtherMachineContext machineContext = new DefaultEtherMachineContext();
+		machine.build(new DefaultEtherMachineResource(machine, loader, machineContext));
+		machine.drive(machineContext);
 	}
 }

@@ -8,14 +8,17 @@ import org.dom4j.Element;
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Context;
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Resource;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.BuildException;
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.exception.DriveException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionContext;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionResource;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionBuildException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
+import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionLoadException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.EtherFunctionEntity;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionResource;
+import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareContext;
 
 
 /**
@@ -84,5 +87,20 @@ public abstract class AbstractEtherFunctionEntity implements EtherFunctionEntity
 	
 	public Element getFunctionElement() {
 		return this.getFunctionResource().getFunctionElement();
+	}
+
+	/**
+	 * 顺序执行子节点
+	 * @param context
+	 * @throws COPException 
+	 * @throws FunctionLoadException 
+	 */
+	public void driveChildrenBySequence(EtherFunctionContext context) throws FunctionLoadException, COPException {
+		for (Element functionElement : getFunctionElement().elements()) {
+			EtherWareContext wareContext = context.getWareContext();
+			EtherFunctionContext functionContext = wareContext.getFunctionContext(functionElement);
+			EtherFunctionEntity functionEntity = functionContext.loadFunctionEntity(functionElement);
+			functionEntity.drive(functionContext);
+		}
 	}
 }

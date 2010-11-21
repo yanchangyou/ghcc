@@ -5,6 +5,7 @@
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.machine.define;
 
 import org.ghcc.toft.ware.norm.interfaces.cop.define.Context;
+import org.ghcc.toft.ware.norm.interfaces.mop.caas.ware.define.WareContext;
 
 
 /**
@@ -19,4 +20,10 @@ import org.ghcc.toft.ware.norm.interfaces.cop.define.Context;
 
 
 public interface MachineContext extends Context, MachineCOPDefine {
+
+	/**
+	 * 获取ware上下文
+	 * @return
+	 */
+	public WareContext getWareContext(Object wareContextInfo);
 }
