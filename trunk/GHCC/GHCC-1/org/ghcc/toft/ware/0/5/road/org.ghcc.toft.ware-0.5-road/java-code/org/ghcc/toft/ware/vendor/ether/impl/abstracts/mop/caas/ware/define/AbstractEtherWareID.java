@@ -28,8 +28,11 @@ public class AbstractEtherWareID implements EtherWareID {
 	
 	public AbstractEtherWareID(Namespace namespace) {
 		this.namespace = namespace;
-		if (!WareUtil.checkWareID(namespace)) {
-			throw new RuntimeException("ware id is invalid, id shoud match" + WareUtil.WARE_ID_PATTERN);
+		String wareID = WareUtil.getWareID(namespace);
+		if (!WareUtil.checkWareID(wareID)) {
+			throw new RuntimeException("ware id[" + wareID + "] is invalid, " +
+					"id shoud be match [xxx.yyy.zzz-0.1-projectcode]," +
+					"regexp is :\r\n" + WareUtil.WARE_ID_PATTERN);
 		}
 	}
 

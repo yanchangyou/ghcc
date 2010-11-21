@@ -46,7 +46,7 @@ public class WareUtil {
 	 * @return
 	 */
 	public static String getWareJavaClassesPath(Namespace namespace) {
-		return getWareJavaClassesPath(namespace.getURI());
+		return getWareJavaClassesPath(namespace.getURI().replace('\\', '/'));
 	}
 	public static String getWareJavaClassesPath(String wareURL) {
 		String javaClassesPath = getWareProjectPath(wareURL) + "/product/java-classes/";
@@ -71,7 +71,7 @@ public class WareUtil {
 	}
 	
 	public static String getWareJavaLibPath(Namespace namespace) {
-		return getWareJavaLibPath(namespace.getURI());
+		return getWareJavaLibPath(namespace.getURI().replace('\\', '/'));
 	}
 
 	public static String getWareProjectPath(String wareURL) {
@@ -84,14 +84,11 @@ public class WareUtil {
 	}
 	
 	public static String getWareProjectPath(Namespace namespace) {
-		return getWareProjectPath(namespace.getURI());
+		return getWareProjectPath(namespace.getURI().replace('\\', '/'));
 	}
 	
 	public static String getWareID(Namespace namespace) {
-		String wareID = null;
-		String uri = namespace.getURI();
-		wareID = uri.substring(uri.lastIndexOf('/')+1);
-		return wareID;
+		return getWareID(namespace.getURI().replace('\\', '/'));
 	}
 
 	/**
@@ -111,16 +108,24 @@ public class WareUtil {
 	 * @return
 	 */
 	public static String getWarePackageName(Namespace namespace) {
-		return getWarePackageName(namespace.getURI());
+		return getWarePackageName(namespace.getURI().replace('\\', '/'));
 	}
-	
+
 	/**
 	 * ware 的类名 之后加上 Ware
 	 * @param namespace
 	 * @return
 	 */
 	public static String getWareClassName(Namespace namespace) {
-		String packageName = getWarePackageName(namespace);
+		return getWareClassName(namespace.getURI().replace('\\', '/'));
+	}
+	/**
+	 * ware 的类名 之后加上 Ware
+	 * @param namespace
+	 * @return
+	 */
+	public static String getWareClassName(String wareURL) {
+		String packageName = getWarePackageName(wareURL);
 		String simpeClassName = packageName.substring(packageName.lastIndexOf('.') + 1);
 		simpeClassName = simpeClassName.substring(0,1).toUpperCase() + simpeClassName.substring(1);
 		return packageName + "." + simpeClassName + "Ware";
@@ -135,6 +140,6 @@ public class WareUtil {
 		System.out.println("WareUtil.getWareJavaLibPath(namespace) : \r\n" + WareUtil.getWareJavaLibPath(namespace));
 		System.out.println("WareUtil.getWarePackageName(namespace) : \r\n" + WareUtil.getWarePackageName(namespace));
 		System.out.println("WareUtil.getWareClassName(namespace) : \r\n" + WareUtil.getWareClassName(namespace));
-	}
+		}
 	
 }
