@@ -19,6 +19,7 @@ import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.Ether
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionResource;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.ware.define.EtherWareContext;
+import org.ghcc.toft.ware.vendor.ether.util.dom4j.Dom4jUtil;
 
 
 /**
@@ -48,7 +49,7 @@ public abstract class AbstractEtherFunctionEntity implements EtherFunctionEntity
 	 * @param context
 	 * @throws DriveException
 	 */
-	public void drive(Context context) throws DriveException {
+	public void drive(Context context) throws FunctionDriveException, COPException {
 		drive((FunctionContext)context);
 	}
 
@@ -64,7 +65,7 @@ public abstract class AbstractEtherFunctionEntity implements EtherFunctionEntity
 	 * @param context
 	 * @throws FunctionDriveException
 	 */
-	public void drive(FunctionContext context) throws FunctionDriveException {
+	public void drive(FunctionContext context) throws FunctionDriveException, COPException {
 		drive((EtherFunctionContext)context);
 	}
 
@@ -80,9 +81,13 @@ public abstract class AbstractEtherFunctionEntity implements EtherFunctionEntity
 	 * @param resource
 	 * @throws FunctionBuildException
 	 */
-	public void build(EtherFunctionResource resource)
-			throws FunctionBuildException {
+	public void build(EtherFunctionResource resource) throws FunctionBuildException {
 		setFunctionResource(resource);
+		try {
+			setFunctionProperties();
+		} catch (Exception e) {
+			throw new FunctionBuildException(e);
+		}
 	}
 	
 	public Element getFunctionElement() {
@@ -102,5 +107,14 @@ public abstract class AbstractEtherFunctionEntity implements EtherFunctionEntity
 			EtherFunctionEntity functionEntity = functionContext.loadFunctionEntity(functionElement);
 			functionEntity.drive(functionContext);
 		}
+	}
+
+	/**
+	 * @param element
+	 * @throws Exception 
+	 */
+	public void setFunctionProperties() throws Exception {
+		Element element = this.getFunctionElement();
+		Dom4jUtil.putElementAttributeToObjectField(element, this);
 	}
 }

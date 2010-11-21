@@ -4,6 +4,7 @@
 
 package org.ghcc.toft.ware.norm.interfaces.mop.caas.function.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
 import org.ghcc.toft.ware.norm.interfaces.cop.lifecycle.Driver;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.define.FunctionContext;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
@@ -22,6 +23,6 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDr
 
 public interface FunctionDriver extends Driver, FunctionCOPLifeCycle {
 
-	public void drive(FunctionContext context) throws FunctionDriveException;
+	public void drive(FunctionContext context) throws FunctionDriveException, COPException;
 
 }

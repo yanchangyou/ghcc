@@ -4,10 +4,11 @@
 
 package org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.lifecycle;
 
+import org.ghcc.toft.ware.norm.interfaces.cop.exception.COPException;
+import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.lifecycle.FunctionDriver;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.cop.lifecycle.EtherDriver;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
-import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
 
 
 /**
@@ -23,6 +24,6 @@ import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDr
 
 public interface EtherFunctionDriver extends FunctionDriver, EtherDriver, EtherFunctionCOPLifeCycle {
 
-	public void drive(EtherFunctionContext context) throws FunctionDriveException;
+	public void drive(EtherFunctionContext context) throws FunctionDriveException, COPException;
 
 }
