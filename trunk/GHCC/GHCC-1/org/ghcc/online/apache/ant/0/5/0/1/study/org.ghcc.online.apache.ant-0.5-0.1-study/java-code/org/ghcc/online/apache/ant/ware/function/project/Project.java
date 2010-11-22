@@ -2,7 +2,7 @@
  * CopyCenter 2010 GHCC.ORG, all rights freed.
  */
 
-package org.ghcc.online.apache.ant.project;
+package org.ghcc.online.apache.ant.ware.function.project;
 
 import java.io.File;
 

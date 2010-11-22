@@ -2,14 +2,14 @@
  * CopyCenter 2010 GHCC.ORG, all rights freed.
  */
 
-package org.ghcc.online.apache.ant.jar;
+package org.ghcc.online.apache.ant.ware.function.jar;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import org.ghcc.online.apache.ant.property.Property;
 import org.ghcc.online.apache.ant.util.ParamUtil;
+import org.ghcc.online.apache.ant.ware.function.property.Property;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.function.AbstractEtherFunctionEntity;

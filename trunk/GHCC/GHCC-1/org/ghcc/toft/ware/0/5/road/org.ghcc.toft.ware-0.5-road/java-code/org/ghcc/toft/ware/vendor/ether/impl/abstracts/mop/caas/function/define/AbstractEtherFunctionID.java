@@ -59,6 +59,6 @@ public abstract class AbstractEtherFunctionID implements EtherFunctionID {
 			nameBuf.append(parts[i].substring(1));
 		}
 		String packageName = id.replace('-', '.');
-		return warePackageName + "." + packageName + "." + nameBuf;
+		return warePackageName + ".ware.function." + packageName + "." + nameBuf;
 	}
 }

@@ -2,40 +2,41 @@
  * CopyCenter 2010 GHCC.ORG, all rights freed.
  */
 
-package org.ghcc.online.apache.ant.property;
+package org.ghcc.online.apache.ant.ware.function.mkdir;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
 
 import org.ghcc.online.apache.ant.util.ParamUtil;
+import org.ghcc.online.apache.ant.ware.function.property.Property;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;
 import org.ghcc.toft.ware.vendor.ether.impl.abstracts.mop.caas.function.AbstractEtherFunctionEntity;
 
 /**
- * Property
+ * Mkdir
  * 
  * @author yanchangyou
- * @date 2010-11-21 下午03:31:56
+ * @date 2010-11-21 下午03:35:29
  * @version 0.1-1-1
  *
  */
 
-public class Property extends AbstractEtherFunctionEntity {
+public class Mkdir extends AbstractEtherFunctionEntity {
 
-	public static Map<String, String> propertyMap = new HashMap<String, String>();
-
-	protected String name;
-
-	protected String value;
-	
+	protected String dir;
 	/**
 	 * @param context
 	 * @throws FunctionDriveException
 	 */
 	public void drive(EtherFunctionContext context)
 			throws FunctionDriveException {
-		propertyMap.put(name, ParamUtil.getRealValueByParam(value, Property.propertyMap));
+		String realValue = ParamUtil.getRealValueByParam(dir, Property.propertyMap);
+		
+		File file = new File(realValue);
+		if (!file.exists()) {
+			file.mkdirs();
+			System.out.println("make file : " + file.getAbsolutePath());
+		}
 	}
 
 }
