@@ -128,7 +128,7 @@ public class WareUtil {
 		String packageName = getWarePackageName(wareURL);
 		String simpeClassName = packageName.substring(packageName.lastIndexOf('.') + 1);
 		simpeClassName = simpeClassName.substring(0,1).toUpperCase() + simpeClassName.substring(1);
-		return packageName + "." + simpeClassName + "Ware";
+		return packageName + ".ware." + simpeClassName + "Ware";
 	}
 	
 	public static void main(String[] args) {

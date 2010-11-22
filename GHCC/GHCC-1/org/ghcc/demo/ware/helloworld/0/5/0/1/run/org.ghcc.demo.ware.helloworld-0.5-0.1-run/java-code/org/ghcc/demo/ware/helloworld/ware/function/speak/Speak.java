@@ -2,7 +2,7 @@
  * CopyCenter 2010 GHCC.ORG, all rights freed.
  */
 
-package org.ghcc.demo.ware.helloworld.speak;
+package org.ghcc.demo.ware.helloworld.ware.function.speak;
 
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
 import org.ghcc.toft.ware.vendor.ether.design.interfaces.mop.caas.function.define.EtherFunctionContext;

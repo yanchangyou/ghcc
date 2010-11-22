@@ -2,14 +2,14 @@
  * CopyCenter 2010 GHCC.ORG, all rights freed.
  */
 
-package org.ghcc.online.apache.ant.javac;
+package org.ghcc.online.apache.ant.ware.function.javac;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 
-import org.ghcc.online.apache.ant.property.Property;
 import org.ghcc.online.apache.ant.util.ParamUtil;
+import org.ghcc.online.apache.ant.ware.function.property.Property;
 import org.ghcc.toft.ware.norm.interfaces.mop.caas.function.exception.FunctionDriveException;
 import org.ghcc.toft.ware.util.FileDealer;
 import org.ghcc.toft.ware.util.FileTraver;

@@ -1,4 +1,4 @@
-package org.ghcc.demo.ware.helloworld;
+package org.ghcc.demo.ware.helloworld.ware;
 
 import java.net.URL;
 
